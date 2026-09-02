@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function LandingPage({ onGetStarted }) {
   const navigate = useNavigate();
-  
+
   // Duplicate arrays for infinite scrolling marquee effect
   // Duplicate arrays for infinite scrolling marquee effect
   const marqueeInstitutes = [...institutes, ...institutes, ...institutes];
@@ -13,10 +13,10 @@ export default function LandingPage({ onGetStarted }) {
 
   return (
     <div className="content-container animate-stagger" style={{ maxWidth: '100%', padding: '0', margin: '0 auto', overflowX: 'hidden' }}>
-      
+
       {/* ─── Hero Section (Modern Premium SaaS Style) ─── */}
       <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', paddingTop: 'clamp(120px, 15vw, 180px)', overflow: 'hidden' }}>
-        
+
         {/* Subtle top glow */}
         <div style={{ position: 'absolute', top: '-20%', left: '50%', transform: 'translateX(-50%)', width: '100vw', height: '80vh', background: 'radial-gradient(ellipse at top, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0) 70%)', zIndex: 0, pointerEvents: 'none' }}></div>
 
@@ -25,15 +25,15 @@ export default function LandingPage({ onGetStarted }) {
           Manage your campus <br />
           <span style={{ color: 'var(--primary)' }}>without the chaos.</span>
         </h1>
-        
+
         <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.35rem)', color: 'var(--text-muted)', maxWidth: 640, margin: '0 auto 48px', lineHeight: 1.6, position: 'relative', zIndex: 10, fontWeight: 500 }}>
           A single, unified ecosystem for admissions, performance tracking, and global administration. Engineered for modern institutions.
         </p>
 
         {/* Buttons */}
         <div style={{ display: 'flex', gap: 16, justifyContent: 'center', position: 'relative', zIndex: 10, flexWrap: 'wrap' }}>
-          <button 
-            className="nav-btn-primary" 
+          <button
+            className="nav-btn-primary"
             style={{ padding: '16px 36px', fontSize: '1.05rem', fontWeight: 600, background: 'var(--primary)', color: '#fff', borderRadius: 'var(--r-full)', border: 'none', cursor: 'pointer', transition: 'all 0.2s', boxShadow: '0 4px 12px rgba(16, 185, 129, 0.25)' }}
             onClick={onGetStarted}
             onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(16, 185, 129, 0.4)'; }}
@@ -41,8 +41,8 @@ export default function LandingPage({ onGetStarted }) {
           >
             Get Started
           </button>
-          <button 
-            className="nav-btn-primary" 
+          <button
+            className="nav-btn-primary"
             style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '16px 36px', fontSize: '1.05rem', fontWeight: 600, background: 'var(--card-bg)', color: 'var(--text-heading)', borderRadius: 'var(--r-full)', border: '1px solid var(--border-strong)', cursor: 'pointer', transition: 'all 0.2s', boxShadow: 'var(--sh-sm)' }}
             onMouseOver={(e) => e.currentTarget.style.background = 'var(--border-light)'}
             onMouseOut={(e) => e.currentTarget.style.background = 'var(--card-bg)'}
@@ -53,19 +53,19 @@ export default function LandingPage({ onGetStarted }) {
 
         {/* Hero Image / Dashboard Mockup representation */}
         <div style={{ position: 'relative', zIndex: 5, width: '100%', maxWidth: 1200, margin: '60px auto 0', padding: '0 20px' }}>
-          <div style={{ 
-              width: '100%', 
-              height: 'clamp(400px, 60vw, 700px)', 
-              background: 'var(--card-bg)', 
-              borderRadius: '24px 24px 0 0', 
-              border: '1px solid var(--border-strong)',
-              borderBottom: 'none',
-              boxShadow: '0 20px 40px rgba(0,0,0,0.05)',
-              overflow: 'hidden',
-              position: 'relative',
-              WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)',
-              maskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)'
-            }}>
+          <div style={{
+            width: '100%',
+            height: 'clamp(400px, 60vw, 700px)',
+            background: 'var(--card-bg)',
+            borderRadius: '24px 24px 0 0',
+            border: '1px solid var(--border-strong)',
+            borderBottom: 'none',
+            boxShadow: '0 20px 40px rgba(0,0,0,0.05)',
+            overflow: 'hidden',
+            position: 'relative',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)',
+            maskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)'
+          }}>
             {/* Top Mac-like browser bar for aesthetic */}
             <div style={{ height: 48, background: 'var(--border-light)', display: 'flex', alignItems: 'center', padding: '0 20px', gap: 8, borderBottom: '1px solid var(--border-strong)' }}>
               <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#ef4444' }}></div>
@@ -84,34 +84,35 @@ export default function LandingPage({ onGetStarted }) {
           <h2 style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--text-heading)' }}>Top Alumni List</h2>
           <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)' }}>Success stories from our integrated network.</p>
         </div>
-        
+
         <div className="marquee-container">
           <div className="marquee-track">
             {marqueeAlumni.map((alumni, idx) => {
               const instName = institutes.find(i => i.id === alumni.instituteId)?.name || 'EduHub Institute';
               return (
-              <div key={`${alumni.id}-${idx}`} className="bento-card" style={{ width: 360, minHeight: 480, padding: 40, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-                <img src={alumni.picture} alt={alumni.name} style={{ width: 140, height: 140, borderRadius: '50%', objectFit: 'cover', border: '4px solid var(--border-light)', marginBottom: 24, flexShrink: 0 }} />
-                <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                  <h3 style={{ fontSize: '1.5rem', marginBottom: 4, color: 'var(--text-heading)' }}>{alumni.name}</h3>
-                  <p 
-                    style={{ fontSize: '0.95rem', color: 'var(--primary)', fontWeight: 600, marginBottom: 16, cursor: 'pointer', display: 'inline-block' }}
-                    onClick={() => navigate('/institute/' + alumni.instituteId)}
-                  >
-                    {instName}
-                  </p>
-                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 6, marginBottom: 24 }}>
-                    <div style={{ display: 'flex', gap: 4 }}>
-                      {[1,2,3,4,5].map(s => <Star key={s} size={16} color="#f59e0b" fill="#f59e0b" />)}
+                <div key={`${alumni.id}-${idx}`} className="bento-card" style={{ width: 360, minHeight: 480, padding: 40, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                  <img src={alumni.picture} alt={alumni.name} style={{ width: 140, height: 140, borderRadius: '50%', objectFit: 'cover', border: '4px solid var(--border-light)', marginBottom: 24, flexShrink: 0 }} />
+                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                    <h3 style={{ fontSize: '1.5rem', marginBottom: 4, color: 'var(--text-heading)' }}>{alumni.name}</h3>
+                    <p
+                      style={{ fontSize: '0.95rem', color: 'var(--primary)', fontWeight: 600, marginBottom: 16, cursor: 'pointer', display: 'inline-block' }}
+                      onClick={() => navigate('/institute/' + alumni.instituteId)}
+                    >
+                      {instName}
+                    </p>
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 6, marginBottom: 24 }}>
+                      <div style={{ display: 'flex', gap: 4 }}>
+                        {[1, 2, 3, 4, 5].map(s => <Star key={s} size={16} color="#f59e0b" fill="#f59e0b" />)}
+                      </div>
+                      <span style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--text-heading)' }}>5.0</span>
                     </div>
-                    <span style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--text-heading)' }}>5.0</span>
+                    <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', fontStyle: 'italic', lineHeight: 1.6, flex: 1 }}>
+                      "{alumni.successStory}"
+                    </p>
                   </div>
-                  <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', fontStyle: 'italic', lineHeight: 1.6, flex: 1 }}>
-                    "{alumni.successStory}"
-                  </p>
                 </div>
-              </div>
-            )})}
+              )
+            })}
           </div>
         </div>
       </div>
@@ -122,7 +123,7 @@ export default function LandingPage({ onGetStarted }) {
           <h2 style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--text-heading)' }}>Top Ranking Institutes</h2>
           <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)' }}>Explore the best campuses evaluated globally.</p>
         </div>
-        
+
         <div className="marquee-container">
           <div className="marquee-track reverse">
             {marqueeInstitutes.map((inst, idx) => (
@@ -156,14 +157,14 @@ export default function LandingPage({ onGetStarted }) {
               Exclusive seminars, hackathons, and global meetups across all campuses.
             </p>
           </div>
-          
+
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             {events.map((ev, idx) => {
               const inst = institutes.find(i => i.id === ev.instituteId);
               const dateParts = ev.date.split(' ');
               const month = dateParts[0];
               const day = dateParts[1]?.replace(',', '');
-              
+
               return (
                 <div key={ev.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '40px 0', borderTop: '1px solid var(--border-strong)', cursor: 'pointer', transition: 'all 0.3s ease' }} onMouseOver={(e) => e.currentTarget.style.paddingLeft = '24px'} onMouseOut={(e) => e.currentTarget.style.paddingLeft = '0'}>
                   <div style={{ display: 'flex', gap: 60, alignItems: 'center' }}>
@@ -270,11 +271,11 @@ export default function LandingPage({ onGetStarted }) {
       <div style={{ padding: '80px 20px 120px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', fontWeight: 700, color: 'var(--text-heading)', marginBottom: 60 }}>Integrate with your existing tools in seconds</h2>
         <div style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(16px, 4vw, 40px)', alignItems: 'center', minHeight: 120, flexWrap: 'wrap' }}>
-           <div className="floating-icon" style={{ position: 'relative', width: 'clamp(48px, 10vw, 64px)', height: 'clamp(48px, 10vw, 64px)', borderRadius: 16, animation: 'float2 6s infinite' }}><Video size={32} color="#ea4335" /></div>
-           <div className="floating-icon" style={{ position: 'relative', width: 'clamp(56px, 12vw, 72px)', height: 'clamp(56px, 12vw, 72px)', borderRadius: 16, animation: 'float1 7s infinite', transform: 'translateY(-20px)' }}><MessageSquare size={36} color="#4a154b" /></div>
-           <div className="floating-icon" style={{ position: 'relative', width: 'clamp(72px, 15vw, 96px)', height: 'clamp(72px, 15vw, 96px)', borderRadius: 24, animation: 'float3 5s infinite' }}><Cloud size={48} color="#0056e0" /></div>
-           <div className="floating-icon" style={{ position: 'relative', width: 'clamp(56px, 12vw, 72px)', height: 'clamp(56px, 12vw, 72px)', borderRadius: 16, animation: 'float2 8s infinite', transform: 'translateY(-20px)' }}><FileText size={36} color="#2563eb" /></div>
-           <div className="floating-icon" style={{ position: 'relative', width: 'clamp(48px, 10vw, 64px)', height: 'clamp(48px, 10vw, 64px)', borderRadius: 16, animation: 'float1 6s infinite' }}><Calendar size={32} color="#16a34a" /></div>
+          <div className="floating-icon" style={{ position: 'relative', width: 'clamp(48px, 10vw, 64px)', height: 'clamp(48px, 10vw, 64px)', borderRadius: 16, animation: 'float2 6s infinite' }}><Video size={32} color="#ea4335" /></div>
+          <div className="floating-icon" style={{ position: 'relative', width: 'clamp(56px, 12vw, 72px)', height: 'clamp(56px, 12vw, 72px)', borderRadius: 16, animation: 'float1 7s infinite', transform: 'translateY(-20px)' }}><MessageSquare size={36} color="#4a154b" /></div>
+          <div className="floating-icon" style={{ position: 'relative', width: 'clamp(72px, 15vw, 96px)', height: 'clamp(72px, 15vw, 96px)', borderRadius: 24, animation: 'float3 5s infinite' }}><Cloud size={48} color="#0056e0" /></div>
+          <div className="floating-icon" style={{ position: 'relative', width: 'clamp(56px, 12vw, 72px)', height: 'clamp(56px, 12vw, 72px)', borderRadius: 16, animation: 'float2 8s infinite', transform: 'translateY(-20px)' }}><FileText size={36} color="#2563eb" /></div>
+          <div className="floating-icon" style={{ position: 'relative', width: 'clamp(48px, 10vw, 64px)', height: 'clamp(48px, 10vw, 64px)', borderRadius: 16, animation: 'float1 6s infinite' }}><Calendar size={32} color="#16a34a" /></div>
         </div>
       </div>
 
@@ -291,7 +292,7 @@ export default function LandingPage({ onGetStarted }) {
               <button className="nav-btn-primary" style={{ width: 56, height: 56, borderRadius: '50%', background: 'var(--text-heading)', color: 'var(--bg-color)', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><ChevronRight size={24} /></button>
             </div>
           </div>
-          
+
           <div style={{ flex: '1 1 320px', display: 'flex', flexDirection: 'column', gap: 24, maxWidth: 400 }}>
             <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80" alt="Sarah Mitchell" style={{ width: '100%', height: 'auto', aspectRatio: '3/4', objectFit: 'cover', borderRadius: 24, boxShadow: '0 24px 48px rgba(0,0,0,0.1)' }} />
             <div>
@@ -317,9 +318,9 @@ export default function LandingPage({ onGetStarted }) {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 80 }}>
             <div>
               <h4 style={{ fontWeight: 600, marginBottom: 20, color: '#fff' }}>Product</h4>
-              <p style={{ color: 'rgba(255,255,255,0.8)', marginBottom: 12, cursor: 'pointer', transition: 'color 0.2s' }} onMouseOver={e => e.currentTarget.style.color = '#fff'} onMouseOut={e => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'} onClick={() => document.getElementById('features')?.scrollIntoView({behavior: 'smooth'})}>Features</p>
+              <p style={{ color: 'rgba(255,255,255,0.8)', marginBottom: 12, cursor: 'pointer', transition: 'color 0.2s' }} onMouseOver={e => e.currentTarget.style.color = '#fff'} onMouseOut={e => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'} onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}>Features</p>
               <p style={{ color: 'rgba(255,255,255,0.8)', marginBottom: 12, cursor: 'pointer', transition: 'color 0.2s' }} onMouseOver={e => e.currentTarget.style.color = '#fff'} onMouseOut={e => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}>Pricing</p>
-              <p style={{ color: 'rgba(255,255,255,0.8)', marginBottom: 12, cursor: 'pointer', transition: 'color 0.2s' }} onMouseOver={e => e.currentTarget.style.color = '#fff'} onMouseOut={e => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'} onClick={() => document.getElementById('institutes')?.scrollIntoView({behavior: 'smooth'})}>Institutes</p>
+              <p style={{ color: 'rgba(255,255,255,0.8)', marginBottom: 12, cursor: 'pointer', transition: 'color 0.2s' }} onMouseOver={e => e.currentTarget.style.color = '#fff'} onMouseOut={e => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'} onClick={() => document.getElementById('institutes')?.scrollIntoView({ behavior: 'smooth' })}>Institutes</p>
             </div>
             <div>
               <h4 style={{ fontWeight: 600, marginBottom: 20, color: '#fff' }}>Resources</h4>
@@ -334,13 +335,13 @@ export default function LandingPage({ onGetStarted }) {
             </div>
           </div>
         </div>
-        
+
         {/* Massive Text Background */}
         <div style={{ textAlign: 'center', marginTop: 60, position: 'relative', overflow: 'hidden', height: '20vw', pointerEvents: 'none', userSelect: 'none', WebkitUserSelect: 'none' }}>
-          <h1 style={{ 
-            fontSize: '25vw', 
-            fontWeight: 900, 
-            lineHeight: 0.8, 
+          <h1 style={{
+            fontSize: '25vw',
+            fontWeight: 900,
+            lineHeight: 0.8,
             background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0))',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
