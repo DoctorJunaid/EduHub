@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MagnifyingGlass, Bell, Hexagon } from '@phosphor-icons/react';
+import { MagnifyingGlass, Bell, Hexagon, Moon, Sun } from '@phosphor-icons/react';
 import { Routes, Route, useNavigate, useLocation, Navigate } from 'react-router-dom';
 import SuperAdminDashboard from './views/SuperAdminDashboard';
 import InstitutesList from './views/SuperAdmin/InstitutesList';
@@ -128,15 +128,11 @@ function DashboardRoutes({ user }) {
 export default function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [isDark, setIsDark] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [isGetStartedOpen, setIsGetStartedOpen] = useState(false);
   
   const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-    setTimeout(() => setIsLoading(false), 800);
-  }, []);
 
   useEffect(() => {
     if (isDark) {
@@ -156,9 +152,7 @@ export default function App() {
 
   const switchUser = (id) => {
     if (currentUser?.id === id) return;
-    setIsLoading(true);
     setCurrentUser(getFullUserRecord(id));
-    setTimeout(() => setIsLoading(false), 600);
   };
 
   const handleLogout = () => {
@@ -176,25 +170,6 @@ export default function App() {
       document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
-  if (isLoading) {
-    return (
-      <div className={`app-shell ${!currentUser ? 'public-layout' : 'lms-layout'}`}>
-        <div className="page-content">
-          <div className="content-container animate-stagger" style={{ gap: 32 }}>
-            <div className="skeleton" style={{ width: '30%', height: 40, marginBottom: 16 }}></div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24 }}>
-              <div className="skeleton" style={{ height: 160 }}></div>
-              <div className="skeleton" style={{ height: 160 }}></div>
-              <div className="skeleton" style={{ height: 160 }}></div>
-              <div className="skeleton" style={{ height: 160 }}></div>
-            </div>
-            <div className="skeleton" style={{ width: '100%', height: 400 }}></div>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   const isPublicRoute = location.pathname === '/' || location.pathname === '/login' || location.pathname.startsWith('/institute');
 
@@ -220,6 +195,28 @@ export default function App() {
             </div>
 
             <div className="nav-actions">
+              <button 
+                onClick={() => setIsDark(!isDark)} 
+                title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
+                style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center', 
+                  width: 36, 
+                  height: 36, 
+                  borderRadius: '50%', 
+                  background: 'rgba(255,255,255,0.2)', 
+                  border: '1px solid rgba(255,255,255,0.3)', 
+                  color: '#ffffff', 
+                  cursor: 'pointer',
+                  transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.08)'}
+                onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              >
+                {isDark ? <Sun size={18} weight="bold" /> : <Moon size={18} weight="bold" />}
+              </button>
+
               {currentUser ? (
                 <button className="nav-btn-primary" style={{ background: '#ffffff', color: 'var(--primary)' }} onClick={() => navigate('/dashboard')}>Go to Dashboard</button>
               ) : (
@@ -265,7 +262,7 @@ export default function App() {
       {isPublicRoute && (
         <div className="page-content">
           <Routes>
-            <Route path="/" element={<LandingPage onGetStarted={() => setIsGetStartedOpen(true)} />} />
+            <Route path="/" element={<LandingPage isDark={isDark} setIsDark={setIsDark} onGetStarted={() => setIsGetStartedOpen(true)} />} />
             <Route path="/institute/:id" element={<PublicInstitutePage />} />
             <Route path="/login" element={<LoginPage onLogin={switchUser} />} />
             <Route path="*" element={<Navigate to="/" replace />} />

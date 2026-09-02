@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Star, MapPin, Calendar, Users, Briefcase, GraduationCap, Buildings, VideoCamera, ChatCircle, Cloud, FileText, CaretLeft, CaretRight, X, CheckCircle, Play } from '@phosphor-icons/react';
+import { Star, MapPin, Calendar, Users, Briefcase, GraduationCap, Buildings, VideoCamera, ChatCircle, Cloud, FileText, CaretLeft, CaretRight, X, CheckCircle, Play, Moon, Sun } from '@phosphor-icons/react';
 import { top_alumni, institutes, events } from '../data/mockData';
 import { useNavigate } from 'react-router-dom';
 
-export default function LandingPage({ onGetStarted }) {
+export default function LandingPage({ onGetStarted, isDark, setIsDark }) {
   const navigate = useNavigate();
 
   // Duplicate arrays for infinite scrolling marquee effect
@@ -15,7 +15,7 @@ export default function LandingPage({ onGetStarted }) {
     <div className="content-container animate-stagger" style={{ maxWidth: '100%', padding: '0', margin: '0 auto', overflowX: 'hidden' }}>
 
       {/* ─── Hero Section (Modern Premium SaaS Style) ─── */}
-      <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', paddingTop: 'clamp(120px, 15vw, 180px)', overflow: 'hidden' }}>
+      <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', paddingTop: 'clamp(120px, 15vw, 180px)', overflow: 'hidden', background: 'var(--bg-color)' }}>
 
         {/* Subtle top glow */}
         <div style={{ position: 'absolute', top: '-20%', left: '50%', transform: 'translateX(-50%)', width: '100vw', height: '80vh', background: 'radial-gradient(ellipse at top, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0) 70%)', zIndex: 0, pointerEvents: 'none' }}></div>
@@ -79,7 +79,7 @@ export default function LandingPage({ onGetStarted }) {
       </div>
 
       {/* ─── Top Alumni List (Extraordinary Cards) ─── */}
-      <div id="alumni" style={{ padding: '100px 0' }}>
+      <div id="alumni" style={{ padding: '100px 0', background: 'var(--bg-color)' }}>
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
           <span className="lp-section-label">Success Stories</span>
           <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, color: 'var(--text-heading)', letterSpacing: '-0.03em' }}>Where Our Graduates Are Now</h2>
@@ -420,6 +420,44 @@ export default function LandingPage({ onGetStarted }) {
           }}>EduHub</h1>
         </div>
       </div>
+
+      {/* ─── Floating Quick Theme Switcher ─── */}
+      {setIsDark && (
+        <div style={{ position: 'fixed', bottom: 28, right: 28, zIndex: 9999 }}>
+          <button
+            onClick={() => setIsDark(!isDark)}
+            title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 8,
+              padding: '10px 18px',
+              borderRadius: 'var(--r-full)',
+              background: 'var(--card-bg)',
+              color: 'var(--text-heading)',
+              border: '1px solid var(--border-strong)',
+              boxShadow: '0 8px 24px -4px rgba(0, 0, 0, 0.2)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              fontWeight: 650,
+              fontSize: '0.86rem',
+              cursor: 'pointer',
+              transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = 'translateY(-3px) scale(1.02)';
+              e.currentTarget.style.borderColor = 'var(--primary)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = 'translateY(0) scale(1)';
+              e.currentTarget.style.borderColor = 'var(--border-strong)';
+            }}
+          >
+            {isDark ? <Sun size={18} color="var(--primary)" weight="bold" /> : <Moon size={18} color="var(--primary)" weight="bold" />}
+            <span>{isDark ? 'Light Mode' : 'Dark Mode'}</span>
+          </button>
+        </div>
+      )}
 
     </div>
   );
