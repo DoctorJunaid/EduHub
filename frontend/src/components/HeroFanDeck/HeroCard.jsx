@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion, useTransform } from 'motion/react';
 import { ArrowUpRight, Sparkle, Star } from '@phosphor-icons/react';
 
 export default function HeroCard({
@@ -10,7 +10,8 @@ export default function HeroCard({
   isIntroComplete = false,
   hoveredIndex,
   onHover,
-  onSelect
+  onSelect,
+  scrollYProgress
 }) {
   const centerIndex = Math.floor(totalCards / 2); // index 3 is center
   const diff = index - centerIndex; // -3, -2, -1, 0, 1, 2, 3
@@ -62,12 +63,61 @@ export default function HeroCard({
     dynamicScale = 0.6;
   }
 
+  // Scroll explosion transforms
+  // As scrollYProgress goes from 0.1 to 0.6, cards explode outward and forward, then fade out
+  // Math.sign(diff) gives direction, Math.abs(diff) gives magnitude.
+  const direction = diff < 0 ? -1 : diff > 0 ? 1 : 0;
+  
+  const explodeX = useTransform(
+    scrollYProgress, 
+    [0, 1], 
+    [0, direction * 800 + (diff * 200)]
+  );
+  
+  const explodeY = useTransform(
+    scrollYProgress, 
+    [0, 1], 
+    [0, -300 + Math.abs(diff) * 150]
+  );
+  
+  const explodeZ = useTransform(
+    scrollYProgress, 
+    [0, 1], 
+    [0, 1000] // Fly towards camera
+  );
+
+  const explodeRotate = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, direction * 45]
+  );
+
+  const explodeOpacity = useTransform(
+    scrollYProgress, 
+    [0.2, 0.8], 
+    [1, 0]
+  );
+
   return (
     <motion.div
-      className="hero-card-anchor"
       style={{
-        zIndex: dynamicZIndex,
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        x: explodeX,
+        y: explodeY,
+        z: explodeZ,
+        rotateZ: explodeRotate,
+        opacity: explodeOpacity,
+        transformStyle: 'preserve-3d',
+        zIndex: dynamicZIndex
       }}
+    >
+    <motion.div
+      className="hero-card-anchor"
+      style={{ position: 'absolute' }}
       initial={{
         x: diff * 40,
         y: 350,
@@ -142,6 +192,7 @@ export default function HeroCard({
           </div>
         </div>
       </div>
+    </motion.div>
     </motion.div>
   );
 }

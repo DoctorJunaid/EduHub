@@ -4,6 +4,7 @@ import { Star, MapPin, Calendar, Users, Briefcase, GraduationCap, Buildings, Vid
 import { top_alumni, institutes, events } from '../data/mockData';
 import { useNavigate } from 'react-router-dom';
 import HeroFanDeck from '../components/HeroFanDeck/HeroFanDeck';
+import WebGLBackground from '../components/WebGLBackground';
 
 export default function LandingPage({ onGetStarted, isDark, setIsDark }) {
   const navigate = useNavigate();
@@ -23,17 +24,25 @@ export default function LandingPage({ onGetStarted, isDark, setIsDark }) {
 
   return (
     <div className="content-container animate-stagger" style={{ maxWidth: '100%', padding: '0', margin: '0 auto', overflowX: 'hidden' }}>
+      <WebGLBackground isDark={isDark} />
+      <div style={{ position: 'relative', zIndex: 1 }}>
 
       {/* ─── Hero Section: Animated Fan Deck (Inspired by Reference) ─── */}
       <HeroFanDeck onGetStarted={onGetStarted} navigate={navigate} />
 
       {/* ─── Top Alumni List (Extraordinary Cards) ─── */}
-      <div id="alumni" style={{ padding: '100px 0', background: 'var(--bg-color)' }}>
-        <div style={{ textAlign: 'center', marginBottom: 56 }}>
+      <div id="alumni" style={{ padding: '100px 0', background: 'transparent' }}>
+        <motion.div 
+          style={{ textAlign: 'center', marginBottom: 56 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
           <span className="lp-section-label">Success Stories</span>
           <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, color: 'var(--text-heading)', letterSpacing: '-0.03em' }}>Where Our Graduates Are Now</h2>
           <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', maxWidth: 500, margin: '12px auto 0' }}>The network effect of Pakistan's finest institutions.</p>
-        </div>
+        </motion.div>
 
         <div className="marquee-container">
           <div className="marquee-track">
@@ -62,12 +71,18 @@ export default function LandingPage({ onGetStarted, isDark, setIsDark }) {
 
 
       {/* ─── Top Ranking Institutes (Extraordinary Cards) ─── */}
-      <div id="institutes" style={{ padding: '100px 0', background: 'var(--card-bg)', borderTop: '1px solid var(--border-light)' }}>
-        <div style={{ textAlign: 'center', marginBottom: 56 }}>
+      <div id="institutes" style={{ padding: '100px 0', background: 'transparent', borderTop: '1px solid var(--border-light)' }}>
+        <motion.div 
+          style={{ textAlign: 'center', marginBottom: 56 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
           <span className="lp-section-label">Our Network</span>
           <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, color: 'var(--text-heading)', letterSpacing: '-0.03em' }}>Pakistan's Top-Ranked Institutions</h2>
           <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', maxWidth: 500, margin: '12px auto 0' }}>From NUST to AKU — the country's finest campuses trust EduHub.</p>
-        </div>
+        </motion.div>
 
         <div className="marquee-container">
           <div className="marquee-track reverse">
@@ -96,7 +111,7 @@ export default function LandingPage({ onGetStarted, isDark, setIsDark }) {
       </div>
 
       {/* ─── Upcoming Events (Premium Layout) ─── */}
-      <div style={{ padding: '120px 20px', background: 'var(--bg-color)', borderBottom: '1px solid var(--border-light)' }}>
+      <div style={{ padding: '120px 20px', background: 'transparent', borderBottom: '1px solid var(--border-light)' }}>
         <div style={{ maxWidth: 1000, margin: '0 auto' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 80, flexWrap: 'wrap', gap: 24 }}>
             <div>
@@ -140,12 +155,18 @@ export default function LandingPage({ onGetStarted, isDark, setIsDark }) {
 
       {/* ─── Top Facilities (Bento Grid) ─── */}
       <div id="features" style={{ padding: '120px 20px', maxWidth: 1200, margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: 60 }}>
+        <motion.div 
+          style={{ textAlign: 'center', marginBottom: 60 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
           <h2 style={{ fontSize: '3rem', fontWeight: 700, color: 'var(--text-heading)' }}>Built for everyone</h2>
           <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: 600, margin: '16px auto 0' }}>
             Thousands of users, from students to enterprise campus admins, use EduHub to handle education.
           </p>
-        </div>
+        </motion.div>
 
         <div className="xbento-grid">
           {/* Bento 1: Students */}
@@ -268,7 +289,7 @@ export default function LandingPage({ onGetStarted, isDark, setIsDark }) {
       </div>
 
       {/* ─── Words of Appreciation (Split Parallax Layout) ─── */}
-      <div ref={founderRef} style={{ padding: 'clamp(100px, 12vw, 180px) 20px', background: 'var(--bg-color)', position: 'relative', overflow: 'hidden' }}>
+      <div ref={founderRef} style={{ padding: 'clamp(100px, 12vw, 180px) 20px', background: 'transparent', position: 'relative', overflow: 'hidden' }}>
 
         <div style={{ textAlign: 'center', marginBottom: 60, position: 'relative', zIndex: 2 }}>
           <span className="lp-section-label">Founder's Note</span>
@@ -396,6 +417,7 @@ export default function LandingPage({ onGetStarted, isDark, setIsDark }) {
         </div>
       )}
 
+      </div>
     </div>
   );
 }

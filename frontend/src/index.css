@@ -2353,8 +2353,8 @@ body.dark-theme .xbento-fake-bar-2, body.dark-theme .xbento-fake-bar-4 { backgro
    ═══════════════════════════════════════ */
 .xcard-alumni {
   position: relative;
-  width: 360px;
-  height: 520px;
+  width: 300px;
+  height: 420px;
   background: var(--card-bg);
   border: 1px solid var(--border-light);
   border-radius: 24px;
@@ -2367,10 +2367,16 @@ body.dark-theme .xbento-fake-bar-2, body.dark-theme .xbento-fake-bar-4 { backgro
   flex-direction: column;
 }
 
+.xcard-alumni {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
 .xcard-alumni:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.2);
-  border-color: rgba(5, 150, 105, 0.4);
+  outline: 3px solid var(--primary);
+  outline-offset: 6px;
 }
 
 .xcard-alumni-bg-wrap {
@@ -2493,9 +2499,16 @@ body.dark-theme .xbento-fake-bar-2, body.dark-theme .xbento-fake-bar-4 { backgro
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.xcard-institute {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
 .xcard-institute:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+  outline: 3px solid var(--primary);
+  outline-offset: 6px;
 }
 
 .xcard-inst-img-wrap {

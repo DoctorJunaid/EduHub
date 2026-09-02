@@ -1,5 +1,10 @@
 /* ─── HeroFanDeck Stylesheet ─── */
 
+.hero-scroll-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .hero-fan-container {
   position: relative;
   width: 100%;
@@ -11,7 +16,7 @@
   text-align: center;
   padding: clamp(110px, 13vw, 160px) 20px 80px;
   overflow: hidden;
-  background: var(--bg-color);
+  background: transparent;
   user-select: none;
 }
 
