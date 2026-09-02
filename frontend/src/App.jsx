@@ -147,6 +147,10 @@ export default function App() {
   }, [isDark]);
 
   useEffect(() => {
+    const pageContent = document.querySelector('.page-content');
+    if (pageContent) {
+      pageContent.scrollTo(0, 0);
+    }
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
