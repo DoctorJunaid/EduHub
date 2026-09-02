@@ -258,13 +258,7 @@ export default function HeroFanDeck({ onGetStarted, navigate }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.85 }}
       >
-        <button 
-          className="hero-btn-primary"
-          onClick={onGetStarted}
-        >
-          <span>Get Started Free</span>
-          <ArrowRight size={18} weight="bold" />
-        </button>
+
 
         <button 
           className="hero-btn-secondary"
