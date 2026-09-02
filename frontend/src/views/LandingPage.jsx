@@ -78,11 +78,12 @@ export default function LandingPage({ onGetStarted }) {
         </div>
       </div>
 
-      {/* ─── Top Alumni List (Marquee) ─── */}
-      <div id="alumni" style={{ padding: '80px 0' }}>
-        <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <h2 style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--text-heading)' }}>Top Alumni List</h2>
-          <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)' }}>Success stories from our integrated network.</p>
+      {/* ─── Top Alumni List (Extraordinary Cards) ─── */}
+      <div id="alumni" style={{ padding: '100px 0' }}>
+        <div style={{ textAlign: 'center', marginBottom: 56 }}>
+          <span className="lp-section-label">Success Stories</span>
+          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, color: 'var(--text-heading)', letterSpacing: '-0.03em' }}>Where Our Graduates Are Now</h2>
+          <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', maxWidth: 500, margin: '12px auto 0' }}>The network effect of Pakistan's finest institutions.</p>
         </div>
 
         <div className="marquee-container">
@@ -90,25 +91,35 @@ export default function LandingPage({ onGetStarted }) {
             {marqueeAlumni.map((alumni, idx) => {
               const instName = institutes.find(i => i.id === alumni.instituteId)?.name || 'EduHub Institute';
               return (
-                <div key={`${alumni.id}-${idx}`} className="bento-card" style={{ width: 360, minHeight: 480, padding: 40, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-                  <img src={alumni.picture} alt={alumni.name} style={{ width: 140, height: 140, borderRadius: '50%', objectFit: 'cover', border: '4px solid var(--border-light)', marginBottom: 24, flexShrink: 0 }} />
-                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                    <h3 style={{ fontSize: '1.5rem', marginBottom: 4, color: 'var(--text-heading)' }}>{alumni.name}</h3>
-                    <p
-                      style={{ fontSize: '0.95rem', color: 'var(--primary)', fontWeight: 600, marginBottom: 16, cursor: 'pointer', display: 'inline-block' }}
-                      onClick={() => navigate('/institute/' + alumni.instituteId)}
-                    >
-                      {instName}
-                    </p>
-                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 6, marginBottom: 24 }}>
-                      <div style={{ display: 'flex', gap: 4 }}>
-                        {[1, 2, 3, 4, 5].map(s => <Star key={s} size={16} color="#f59e0b" fill="#f59e0b" />)}
-                      </div>
-                      <span style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--text-heading)' }}>5.0</span>
+                <div key={`${alumni.id}-${idx}`} className="xcard-alumni">
+                  {/* Animated corner brackets */}
+                  <div className="xcard-corner xcard-corner-tl" />
+                  <div className="xcard-corner xcard-corner-tr" />
+                  <div className="xcard-corner xcard-corner-bl" />
+                  <div className="xcard-corner xcard-corner-br" />
+                  {/* Shimmer sweep */}
+                  <div className="xcard-shimmer" />
+                  {/* Content */}
+                  <div className="xcard-alumni-inner">
+                    {/* Avatar with spinning ring */}
+                    <div className="xcard-avatar-wrap">
+                      <div className="xcard-avatar-ring" />
+                      <div className="xcard-avatar-ring-inner" />
+                      <img src={alumni.picture} alt={alumni.name} className="xcard-avatar-img" />
+                      {/* Floating status dot */}
+                      <div className="xcard-avatar-status" />
                     </div>
-                    <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', fontStyle: 'italic', lineHeight: 1.6, flex: 1 }}>
-                      "{alumni.successStory}"
-                    </p>
+                    <h3 className="xcard-alumni-name">{alumni.name}</h3>
+                    <p className="xcard-alumni-inst" onClick={() => navigate('/institute/' + alumni.instituteId)}>{instName}</p>
+                    {/* Decorative line */}
+                    <div className="xcard-divider-fancy">
+                      <div className="xcard-divider-line" />
+                      <div className="xcard-divider-diamond" />
+                      <div className="xcard-divider-line" />
+                    </div>
+                    <p className="xcard-alumni-quote">"{alumni.successStory}"</p>
+                    {/* Bottom accent orb */}
+                    <div className="xcard-orb" />
                   </div>
                 </div>
               )
@@ -117,28 +128,49 @@ export default function LandingPage({ onGetStarted }) {
         </div>
       </div>
 
-      {/* ─── Top Ranking Institutes (Marquee Reverse) ─── */}
-      <div id="institutes" style={{ padding: '80px 0', background: 'var(--card-bg)' }}>
-        <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <h2 style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--text-heading)' }}>Top Ranking Institutes</h2>
-          <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)' }}>Explore the best campuses evaluated globally.</p>
+
+      {/* ─── Top Ranking Institutes (Extraordinary Cards) ─── */}
+      <div id="institutes" style={{ padding: '100px 0', background: 'var(--card-bg)', borderTop: '1px solid var(--border-light)' }}>
+        <div style={{ textAlign: 'center', marginBottom: 56 }}>
+          <span className="lp-section-label">Our Network</span>
+          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, color: 'var(--text-heading)', letterSpacing: '-0.03em' }}>Pakistan's Top-Ranked Institutions</h2>
+          <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', maxWidth: 500, margin: '12px auto 0' }}>From NUST to AKU — the country's finest campuses trust EduHub.</p>
         </div>
 
         <div className="marquee-container">
           <div className="marquee-track reverse">
             {marqueeInstitutes.map((inst, idx) => (
-              <div key={`${inst.id}-${idx}`} className="bento-card" style={{ width: 360, minHeight: 480, padding: 24, cursor: 'pointer', display: 'flex', flexDirection: 'column' }} onClick={() => navigate('/institute/' + inst.id)}>
-                <div style={{ width: '100%', height: 260, borderRadius: 16, overflow: 'hidden', marginBottom: 24 }}>
-                  <img src={inst.image} alt={inst.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div key={`${inst.id}-${idx}`} className="xcard-institute" onClick={() => navigate('/institute/' + inst.id)}>
+                {/* Animated corner brackets */}
+                <div className="xcard-corner xcard-corner-tl" />
+                <div className="xcard-corner xcard-corner-tr" />
+                <div className="xcard-corner xcard-corner-bl" />
+                <div className="xcard-corner xcard-corner-br" />
+                {/* Shimmer sweep */}
+                <div className="xcard-shimmer" />
+                {/* Animated border glow */}
+                <div className="xcard-border-glow" />
+                {/* Image area */}
+                <div className="xcard-inst-img-wrap">
+                  <img src={inst.image} alt={inst.name} className="xcard-inst-img" />
+                  <div className="xcard-inst-img-overlay" />
+                  {/* Glassmorphism rating badge */}
+                  <div className="xcard-inst-rating">
+                    <Star size={13} color="#f59e0b" fill="#f59e0b" />
+                    <span>{inst.rating}</span>
+                  </div>
+                  {/* Type badge */}
+                  <div className="xcard-inst-type">{inst.type || 'University'}</div>
                 </div>
-                <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                  <h3 style={{ fontSize: '1.5rem', marginBottom: 12, color: 'var(--text-heading)' }}>{inst.name}</h3>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-muted)', fontSize: '1.05rem', marginBottom: 'auto' }}>
-                    <Star size={20} color="#f59e0b" fill="#f59e0b" /> <span style={{ fontWeight: 600 }}>{inst.rating}</span> / 5.0
+                {/* Content */}
+                <div className="xcard-inst-content">
+                  <h3 className="xcard-inst-name">{inst.name}</h3>
+                  <div className="xcard-inst-meta">
+                    <MapPin size={14} strokeWidth={2.5} />
+                    <span>{inst.address?.split(',').pop()?.trim() || 'Pakistan'}</span>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-muted)', fontSize: '0.95rem', marginTop: 16 }}>
-                    <MapPin size={18} /> {inst.branches?.length || 1} Campuses
-                  </div>
+                  {/* Bottom animated line */}
+                  <div className="xcard-inst-bottom-line" />
                 </div>
               </div>
             ))}
@@ -198,71 +230,90 @@ export default function LandingPage({ onGetStarted }) {
           </p>
         </div>
 
-        <div className="bento-grid">
+        <div className="xbento-grid">
           {/* Bento 1: Students */}
-          <div className="bento-card">
-            <div className="bento-img-container" style={{ padding: 0 }}>
-              <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80" alt="Students" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <div className="xbento-card">
+            <div className="xbento-img-wrap">
+              <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80" alt="Students" className="xbento-img" />
+              <div className="xbento-img-overlay" />
             </div>
-            <h3>For Students & Learners</h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginTop: 12, lineHeight: 1.5 }}>
-              Use a single cloud system for your applications, track your attendance, and monitor grades in real-time.
-            </p>
+            <div className="xbento-content">
+              <h3 className="xbento-title">For Students & Learners</h3>
+              <p className="xbento-desc">
+                Use a single cloud system for your applications, track your attendance, and monitor grades in real-time.
+              </p>
+            </div>
           </div>
 
           {/* Bento 2: Teachers */}
-          <div className="bento-card">
-            <div className="bento-img-container" style={{ padding: 0 }}>
-              <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&q=80" alt="Teachers" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <div className="xbento-card">
+            <div className="xbento-img-wrap">
+              <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&q=80" alt="Teachers" className="xbento-img" />
+              <div className="xbento-img-overlay" />
             </div>
-            <h3>For Teachers & Trainers</h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginTop: 12, lineHeight: 1.5 }}>
-              Get always up-to-date data on student performance, manage classes, and utilize practical web labs easily.
-            </p>
+            <div className="xbento-content">
+              <h3 className="xbento-title">For Teachers & Trainers</h3>
+              <p className="xbento-desc">
+                Get always up-to-date data on student performance, manage classes, and utilize practical web labs easily.
+              </p>
+            </div>
           </div>
 
           {/* Bento 3: Admins */}
-          <div className="bento-card">
-            <div className="bento-img-container" style={{ padding: 0 }}>
-              <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800&q=80" alt="Admins" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <div className="xbento-card">
+            <div className="xbento-img-wrap">
+              <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800&q=80" alt="Admins" className="xbento-img" />
+              <div className="xbento-img-overlay" />
             </div>
-            <h3>For Institute Admins</h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginTop: 12, lineHeight: 1.5 }}>
-              EduHub helps admin teams streamline compliance, manage campus branches, and monitor overall performance.
-            </p>
+            <div className="xbento-content">
+              <h3 className="xbento-title">For Institute Admins</h3>
+              <p className="xbento-desc">
+                EduHub helps admin teams streamline compliance, manage campus branches, and monitor overall performance.
+              </p>
+            </div>
           </div>
 
           {/* Bento 4: Large Analytics */}
-          <div className="bento-card large" style={{ display: 'flex', gap: 40, alignItems: 'center' }}>
-            <div style={{ flex: 1 }}>
-              <h3 style={{ fontSize: '1.8rem', marginBottom: 16 }}>All campus data at once</h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.6 }}>
+          <div className="xbento-card large">
+            <div className="xbento-content">
+              <h3 className="xbento-title">All campus data at once</h3>
+              <p className="xbento-desc">
                 Contact and personal information, past and upcoming events, career history, projects, and more all in one unified dashboard.
               </p>
             </div>
-            <div style={{ flex: 1, background: 'var(--bg-color)', borderRadius: 16, height: 200, display: 'flex', flexDirection: 'column', gap: 12, padding: 20, boxShadow: 'inset 0 4px 12px rgba(0,0,0,0.05)' }}>
+            <div className="xbento-visual">
               {/* Fake UI for illustration */}
-              <div style={{ height: 16, width: '40%', background: 'var(--border-strong)', borderRadius: 8 }}></div>
-              <div style={{ display: 'flex', gap: 12, marginTop: 16 }}>
-                <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'var(--primary)' }}></div>
-                <div style={{ flex: 1, background: '#fff', borderRadius: 8, border: '1px solid var(--border-light)' }}></div>
-              </div>
-              <div style={{ display: 'flex', gap: 12 }}>
-                <div style={{ width: 40, height: 40, borderRadius: '50%', background: '#f59e0b' }}></div>
-                <div style={{ flex: 1, background: '#fff', borderRadius: 8, border: '1px solid var(--border-light)' }}></div>
+              <div style={{ width: '100%', maxWidth: 400, display: 'flex', flexDirection: 'column', gap: 16 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 16, background: 'var(--card-bg)', padding: 16, borderRadius: 16, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid var(--border-light)' }}>
+                  <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'var(--primary)', opacity: 0.8 }}></div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ width: '60%', height: 12, background: 'var(--border-strong)', borderRadius: 6, marginBottom: 8 }}></div>
+                    <div style={{ width: '40%', height: 10, background: 'var(--border-light)', borderRadius: 5 }}></div>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 16, background: 'var(--card-bg)', padding: 16, borderRadius: 16, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid var(--border-light)', opacity: 0.7 }}>
+                  <div style={{ width: 48, height: 48, borderRadius: '50%', background: '#f59e0b', opacity: 0.8 }}></div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ width: '50%', height: 12, background: 'var(--border-strong)', borderRadius: 6, marginBottom: 8 }}></div>
+                    <div style={{ width: '30%', height: 10, background: 'var(--border-light)', borderRadius: 5 }}></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Bento 5: Events */}
-          <div className="bento-card" style={{ display: 'flex', flexDirection: 'column' }}>
-            <div className="bento-img-container" style={{ padding: 0, flex: 1, marginBottom: 20 }}>
-              <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&q=80" alt="Events" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <div className="xbento-card">
+            <div className="xbento-img-wrap">
+              <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&q=80" alt="Events" className="xbento-img" />
+              <div className="xbento-img-overlay" />
             </div>
-            <h3 style={{ fontSize: '1.3rem', marginBottom: 8 }}>Upcoming Events</h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.5 }}>
-              Stay up to date with the latest seminars, webinars, and hackathons across all campuses.
-            </p>
+            <div className="xbento-content">
+              <h3 className="xbento-title">Upcoming Events</h3>
+              <p className="xbento-desc">
+                Stay up to date with the latest seminars, webinars, and hackathons across all campuses.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -279,25 +330,40 @@ export default function LandingPage({ onGetStarted }) {
         </div>
       </div>
 
-      {/* ─── Words of Appreciation (Premium Layout) ─── */}
-      <div style={{ padding: 'clamp(80px, 10vw, 160px) 20px', background: 'var(--card-bg)', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 'clamp(40px, 8vw, 80px)', alignItems: 'center', justifyContent: 'center' }}>
-          <div style={{ flex: '1 1 400px', position: 'relative' }}>
-            <span style={{ position: 'absolute', top: '-0.5em', left: '-0.2em', fontSize: 'clamp(6rem, 15vw, 12rem)', color: 'var(--primary)', opacity: 0.1, fontFamily: 'serif', lineHeight: 1 }}>"</span>
-            <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: 'var(--text-heading)', lineHeight: 1.3, letterSpacing: '-0.02em', marginBottom: 40, position: 'relative', zIndex: 10 }}>
-              EduHub has <span style={{ color: 'var(--primary)' }}>streamlined</span> our entire campus process, making tasks incredibly efficient.
-            </h2>
-            <div style={{ display: 'flex', gap: 16 }}>
-              <button className="nav-btn-primary" style={{ width: 56, height: 56, borderRadius: '50%', background: 'transparent', color: 'var(--text-heading)', border: '1px solid var(--border-strong)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><ChevronLeft size={24} /></button>
-              <button className="nav-btn-primary" style={{ width: 56, height: 56, borderRadius: '50%', background: 'var(--text-heading)', color: 'var(--bg-color)', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><ChevronRight size={24} /></button>
-            </div>
-          </div>
+      {/* ─── Words of Appreciation (Extraordinary 3D Layout) ─── */}
+      <div style={{ padding: 'clamp(100px, 12vw, 180px) 20px', background: 'var(--bg-color)', position: 'relative', overflow: 'hidden' }}>
 
-          <div style={{ flex: '1 1 320px', display: 'flex', flexDirection: 'column', gap: 24, maxWidth: 400 }}>
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80" alt="Sarah Mitchell" style={{ width: '100%', height: 'auto', aspectRatio: '3/4', objectFit: 'cover', borderRadius: 24, boxShadow: '0 24px 48px rgba(0,0,0,0.1)' }} />
-            <div>
-              <h3 style={{ fontSize: '1.4rem', fontWeight: 700, color: 'var(--text-heading)' }}>Sarah Mitchell</h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>Director of Education</p>
+        <div style={{ textAlign: 'center', marginBottom: 60, position: 'relative', zIndex: 2 }}>
+          <span className="lp-section-label">Founder's Note</span>
+          <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: 800, color: 'var(--text-heading)', letterSpacing: '-0.03em' }}>Built by students, for students.</h2>
+        </div>
+
+        <div className="xcard-testimonial-wrapper">
+          <div className="xcard-testimonial-quote-mark">"</div>
+
+          <div className="xcard-testimonial">
+            {/* Left Content */}
+            <div className="xcard-test-content">
+              <h2 className="xcard-test-text">
+                EduHub was created to <span className="xcard-test-text-highlight">eliminate the chaos</span> of campus management. We believe technology should get out of the way, so you can focus on learning.
+              </h2>
+
+              <div className="xcard-test-controls">
+                <div className="xcard-test-btn"><ChevronLeft size={24} /></div>
+                <div className="xcard-test-btn active"><ChevronRight size={24} /></div>
+              </div>
+            </div>
+
+            {/* Right Image */}
+            <div className="xcard-test-image-wrap">
+              <div className="xcard-test-img-container">
+                <img src="/founder.png" alt="Muhammad Junaid" className="xcard-test-img" />
+
+                <div className="xcard-test-info">
+                  <h3 className="xcard-test-name">Muhammad Junaid</h3>
+                  <p className="xcard-test-role">Founder & CEO, EduHub</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

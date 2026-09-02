@@ -146,6 +146,10 @@ export default function App() {
     }
   }, [isDark]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   const switchUser = (id) => {
     if (currentUser?.id === id) return;
     setIsLoading(true);
