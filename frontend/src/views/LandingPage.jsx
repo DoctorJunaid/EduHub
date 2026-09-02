@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Star, MapPin, Calendar, Users, Briefcase, GraduationCap, Buildings, VideoCamera, ChatCircle, Cloud, FileText, CaretLeft, CaretRight, X, CheckCircle, Play, Moon, Sun } from '@phosphor-icons/react';
 import { top_alumni, institutes, events } from '../data/mockData';
 import { useNavigate } from 'react-router-dom';
+import HeroFanDeck from '../components/HeroFanDeck/HeroFanDeck';
 
 export default function LandingPage({ onGetStarted, isDark, setIsDark }) {
   const navigate = useNavigate();
@@ -14,69 +15,8 @@ export default function LandingPage({ onGetStarted, isDark, setIsDark }) {
   return (
     <div className="content-container animate-stagger" style={{ maxWidth: '100%', padding: '0', margin: '0 auto', overflowX: 'hidden' }}>
 
-      {/* ─── Hero Section (Modern Premium SaaS Style) ─── */}
-      <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', paddingTop: 'clamp(120px, 15vw, 180px)', overflow: 'hidden', background: 'var(--bg-color)' }}>
-
-        {/* Subtle top glow */}
-        <div style={{ position: 'absolute', top: '-20%', left: '50%', transform: 'translateX(-50%)', width: '100vw', height: '80vh', background: 'radial-gradient(ellipse at top, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0) 70%)', zIndex: 0, pointerEvents: 'none' }}></div>
-
-        {/* Main Typography */}
-        <h1 style={{ fontSize: 'clamp(3.5rem, 8vw, 6rem)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 1.05, color: 'var(--text-heading)', marginBottom: 24, position: 'relative', zIndex: 10, maxWidth: 1000 }}>
-          Manage your campus <br />
-          <span style={{ color: 'var(--primary)' }}>without the chaos.</span>
-        </h1>
-
-        <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.35rem)', color: 'var(--text-muted)', maxWidth: 640, margin: '0 auto 48px', lineHeight: 1.6, position: 'relative', zIndex: 10, fontWeight: 500 }}>
-          A single, unified ecosystem for admissions, performance tracking, and global administration. Engineered for modern institutions.
-        </p>
-
-        {/* Buttons */}
-        <div style={{ display: 'flex', gap: 16, justifyContent: 'center', position: 'relative', zIndex: 10, flexWrap: 'wrap' }}>
-          <button
-            className="nav-btn-primary"
-            style={{ padding: '16px 36px', fontSize: '1.05rem', fontWeight: 600, background: 'var(--primary)', color: '#fff', borderRadius: 'var(--r-full)', border: 'none', cursor: 'pointer', transition: 'all 0.2s', boxShadow: '0 4px 12px rgba(16, 185, 129, 0.25)' }}
-            onClick={onGetStarted}
-            onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(16, 185, 129, 0.4)'; }}
-            onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 12px rgba(16, 185, 129, 0.25)'; }}
-          >
-            Get Started
-          </button>
-          <button
-            className="nav-btn-primary"
-            style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '16px 36px', fontSize: '1.05rem', fontWeight: 600, background: 'var(--card-bg)', color: 'var(--text-heading)', borderRadius: 'var(--r-full)', border: '1px solid var(--border-strong)', cursor: 'pointer', transition: 'all 0.2s', boxShadow: 'var(--sh-sm)' }}
-            onMouseOver={(e) => e.currentTarget.style.background = 'var(--border-light)'}
-            onMouseOut={(e) => e.currentTarget.style.background = 'var(--card-bg)'}
-          >
-            <Play size={18} fill="currentColor" /> Watch Demo
-          </button>
-        </div>
-
-        {/* Hero Image / Dashboard Mockup representation */}
-        <div style={{ position: 'relative', zIndex: 5, width: '100%', maxWidth: 1200, margin: '60px auto 0', padding: '0 20px' }}>
-          <div style={{
-            width: '100%',
-            height: 'clamp(400px, 60vw, 700px)',
-            background: 'var(--card-bg)',
-            borderRadius: '24px 24px 0 0',
-            border: '1px solid var(--border-strong)',
-            borderBottom: 'none',
-            boxShadow: '0 20px 40px rgba(0,0,0,0.05)',
-            overflow: 'hidden',
-            position: 'relative',
-            WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)',
-            maskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)'
-          }}>
-            {/* Top Mac-like browser bar for aesthetic */}
-            <div style={{ height: 48, background: 'var(--border-light)', display: 'flex', alignItems: 'center', padding: '0 20px', gap: 8, borderBottom: '1px solid var(--border-strong)' }}>
-              <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#ef4444' }}></div>
-              <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#f59e0b' }}></div>
-              <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#10b981' }}></div>
-            </div>
-            {/* Image content inside the mockup */}
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&q=80" alt="Dashboard Preview" style={{ width: '100%', height: 'calc(100% - 48px)', objectFit: 'cover' }} />
-          </div>
-        </div>
-      </div>
+      {/* ─── Hero Section: Animated Fan Deck (Inspired by Reference) ─── */}
+      <HeroFanDeck onGetStarted={onGetStarted} navigate={navigate} />
 
       {/* ─── Top Alumni List (Extraordinary Cards) ─── */}
       <div id="alumni" style={{ padding: '100px 0', background: 'var(--bg-color)' }}>
