@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, BookOpen, CheckCircle2, TrendingUp, Download } from 'lucide-react';
+import { Medal, BookOpen, CheckCircle, TrendUp, DownloadSimple } from '@phosphor-icons/react';
 import { student_performance } from '../../data/mockData';
 
 export default function StudentResults({ user }) {
@@ -25,7 +25,7 @@ export default function StudentResults({ user }) {
           onClick={() => window.print()}
           style={{ padding: '10px 18px', background: 'var(--card-bg)', color: 'var(--text-heading)', border: '1px solid var(--border-strong)', borderRadius: 'var(--r-sm)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer' }}
         >
-          <Download size={16} /> Print Official Transcript
+          <DownloadSimple size={16} /> Print Official Transcript
         </button>
       </div>
 
@@ -35,7 +35,7 @@ export default function StudentResults({ user }) {
           <h3>Cumulative GPA (CGPA)</h3>
           <div className="c-card-stat">{avgGpa}</div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-muted)' }}>
-            <Award size={18} />
+            <Medal size={18} />
             <span style={{ fontSize: '0.85rem' }}>Out of 4.0 scale</span>
           </div>
         </div>
@@ -53,7 +53,7 @@ export default function StudentResults({ user }) {
           <h3>Current Semester</h3>
           <div className="c-card-stat" style={{ fontSize: '1.5rem' }}>{studentProfile?.semester || '4th Semester'}</div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-muted)' }}>
-            <TrendingUp size={18} />
+            <TrendUp size={18} />
             <span style={{ fontSize: '0.85rem' }}>{studentProfile?.program || 'BS Computer Science'}</span>
           </div>
         </div>
@@ -62,7 +62,7 @@ export default function StudentResults({ user }) {
           <h3>Academic Standing</h3>
           <div className="c-card-stat" style={{ fontSize: '1.4rem', color: 'var(--primary)' }}>Dean's Honor</div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-muted)' }}>
-            <CheckCircle2 size={18} />
+            <CheckCircle size={18} />
             <span style={{ fontSize: '0.85rem' }}>Top 5% batch percentile</span>
           </div>
         </div>

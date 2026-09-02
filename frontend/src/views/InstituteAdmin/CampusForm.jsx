@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, Save } from 'lucide-react';
+import { ArrowLeft, FloppyDisk } from '@phosphor-icons/react';
 import { campus_branches, addCampus, updateCampus } from '../../data/mockData';
 
 export default function CampusForm({ user }) {
@@ -94,7 +94,7 @@ export default function CampusForm({ user }) {
             type="submit" 
             style={{ padding: '12px 24px', borderRadius: 8, border: 'none', background: 'var(--primary)', color: '#fff', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 8 }}
           >
-            <Save size={18} /> {isEdit ? 'Save Changes' : 'Create Campus'}
+            <FloppyDisk size={18} /> {isEdit ? 'FloppyDisk Changes' : 'Create Campus'}
           </button>
         </div>
       </form>

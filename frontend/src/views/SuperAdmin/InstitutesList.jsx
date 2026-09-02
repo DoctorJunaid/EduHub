@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, Filter, Plus, Edit2, Trash2, Eye, Building2 } from 'lucide-react';
+import { MagnifyingGlass, Faders, Plus, PencilSimple, Trash, Eye, Buildings } from '@phosphor-icons/react';
 import { institutes, deleteInstitute } from '../../data/mockData';
 
 export default function InstitutesList() {
@@ -46,17 +46,17 @@ export default function InstitutesList() {
         {/* Table Toolbar */}
         <div style={{ padding: '24px 32px', borderBottom: '1px solid var(--border-light)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ position: 'relative', width: 320 }}>
-            <Search size={18} color="var(--text-muted)" style={{ position: 'absolute', left: 16, top: '50%', transform: 'translateY(-50%)' }} />
+            <MagnifyingGlass size={18} color="var(--text-muted)" style={{ position: 'absolute', left: 16, top: '50%', transform: 'translateY(-50%)' }} />
             <input 
               type="text" 
-              placeholder="Search institutes..." 
+              placeholder="MagnifyingGlass institutes..." 
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
               style={{ width: '100%', padding: '12px 16px 12px 48px', border: '1px solid var(--border-strong)', borderRadius: 'var(--r-full)', outline: 'none', fontSize: '0.95rem' }} 
             />
           </div>
           <button style={{ padding: '10px 20px', border: '1px solid var(--border-strong)', borderRadius: 'var(--r-full)', display: 'flex', alignItems: 'center', gap: 8, fontWeight: 600, color: 'var(--text-main)' }}>
-            <Filter size={16} /> Filters
+            <Faders size={16} /> Filters
           </button>
         </div>
 
@@ -88,7 +88,7 @@ export default function InstitutesList() {
                         {inst.image ? (
                           <img src={inst.image} alt={inst.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '11px' }} />
                         ) : (
-                          <Building2 size={20} color="var(--primary)" />
+                          <Buildings size={20} color="var(--primary)" />
                         )}
                       </div>
                       <div>
@@ -123,13 +123,13 @@ export default function InstitutesList() {
                         style={{ padding: 8, color: 'var(--primary)', background: 'var(--bg-color)', borderRadius: '50%', border: '1px solid var(--border-light)' }}
                         onClick={() => navigate(`/dashboard/institutes/${inst.id}/edit`)}
                       >
-                        <Edit2 size={16} />
+                        <PencilSimple size={16} />
                       </button>
                       <button 
                         style={{ padding: 8, color: '#ef4444', background: 'var(--bg-color)', borderRadius: '50%', border: '1px solid var(--border-light)' }}
                         onClick={() => handleDelete(inst.id)}
                       >
-                        <Trash2 size={16} />
+                        <Trash size={16} />
                       </button>
                     </div>
                   </td>

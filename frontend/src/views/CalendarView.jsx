@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronLeft, ChevronRight, Filter, Clock } from 'lucide-react';
+import { CaretLeft, CaretRight, Faders, Clock } from '@phosphor-icons/react';
 import { class_schedules, campus_branches } from '../data/mockData';
 
 export default function CalendarView() {
@@ -22,8 +22,8 @@ export default function CalendarView() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
             <h2 style={{ fontSize: '1.3rem', color: 'var(--text-heading)', margin: 0, fontWeight: 700 }}>September 2026</h2>
             <div style={{ display: 'flex', gap: 4 }}>
-              <button style={{ width: 34, height: 34, borderRadius: 'var(--r-sm)', border: '1px solid var(--border-strong)', background: 'var(--bg-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-main)', cursor: 'pointer' }}><ChevronLeft size={16} /></button>
-              <button style={{ width: 34, height: 34, borderRadius: 'var(--r-sm)', border: '1px solid var(--border-strong)', background: 'var(--bg-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-main)', cursor: 'pointer' }}><ChevronRight size={16} /></button>
+              <button style={{ width: 34, height: 34, borderRadius: 'var(--r-sm)', border: '1px solid var(--border-strong)', background: 'var(--bg-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-main)', cursor: 'pointer' }}><CaretLeft size={16} /></button>
+              <button style={{ width: 34, height: 34, borderRadius: 'var(--r-sm)', border: '1px solid var(--border-strong)', background: 'var(--bg-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-main)', cursor: 'pointer' }}><CaretRight size={16} /></button>
             </div>
             <button style={{ padding: '6px 14px', border: '1px solid var(--border-strong)', borderRadius: 'var(--r-full)', fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-main)', background: 'var(--bg-color)', cursor: 'pointer' }}>Today</button>
           </div>

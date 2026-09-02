@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, MapPin, ArrowLeft, ChevronRight, Users, Monitor, Palette, LineChart, HeartPulse, ShieldCheck } from 'lucide-react';
+import { Star, MapPin, ArrowLeft, CaretRight, Users, Monitor, Palette, ChartLineUp, Heartbeat, ShieldCheck } from '@phosphor-icons/react';
 import { institutes, trainers, top_alumni, facilities, getInstituteData } from '../data/mockData';
 import { useParams, useNavigate } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ export default function PublicInstitutePage() {
   const instAlumni = top_alumni.filter(a => a.instituteId === instituteId);
   const instFacilities = facilities.filter(f => f.instituteId === instituteId);
 
-  const iconMap = { Users, Monitor, Palette, LineChart, HeartPulse, ShieldCheck };
+  const iconMap = { Users, Monitor, Palette, ChartLineUp, Heartbeat, ShieldCheck };
 
   if (!inst) return <div>Institute not found</div>;
 
@@ -167,7 +167,7 @@ export default function PublicInstitutePage() {
                     <div style={{ fontWeight: 600, fontSize: '0.95rem', color: 'var(--text-heading)' }}>{branch.name}</div>
                     <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{branch.address}</div>
                   </div>
-                  <ChevronRight size={16} style={{ marginLeft: 'auto', color: 'var(--text-muted)' }} />
+                  <CaretRight size={16} style={{ marginLeft: 'auto', color: 'var(--text-muted)' }} />
                 </div>
               ))}
             </div>

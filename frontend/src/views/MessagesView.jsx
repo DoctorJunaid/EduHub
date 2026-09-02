@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Send, MoreVertical, Paperclip, Smile } from 'lucide-react';
+import { MagnifyingGlass, PaperPlaneRight, DotsThreeVertical, Paperclip, Smiley } from '@phosphor-icons/react';
 import { users } from '../data/mockData';
 
 export default function MessagesView({ user }) {
@@ -64,10 +64,10 @@ export default function MessagesView({ user }) {
         <div style={{ padding: 20, borderBottom: '1px solid var(--border-light)' }}>
           <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-heading)', margin: '0 0 12px 0' }}>Messages & Inbox</h2>
           <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-color)', padding: '8px 12px', borderRadius: 'var(--r-full)', border: '1px solid var(--border-strong)' }}>
-            <Search size={16} color="var(--text-muted)" style={{ marginRight: 8 }} />
+            <MagnifyingGlass size={16} color="var(--text-muted)" style={{ marginRight: 8 }} />
             <input 
               type="text" 
-              placeholder="Search conversations..." 
+              placeholder="MagnifyingGlass conversations..." 
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
               style={{ border: 'none', background: 'transparent', outline: 'none', width: '100%', fontSize: '0.85rem', color: 'var(--text-main)' }}
@@ -132,7 +132,7 @@ export default function MessagesView({ user }) {
             </div>
           </div>
           <div style={{ display: 'flex', gap: 16, color: 'var(--text-muted)' }}>
-            <MoreVertical size={20} style={{ cursor: 'pointer' }} />
+            <DotsThreeVertical size={20} style={{ cursor: 'pointer' }} />
           </div>
         </div>
 
@@ -201,7 +201,7 @@ export default function MessagesView({ user }) {
               type="submit" 
               style={{ width: 34, height: 34, borderRadius: '50%', background: 'var(--primary)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', cursor: 'pointer' }}
             >
-              <Send size={15} />
+              <PaperPlaneRight size={15} />
             </button>
           </form>
         </div>

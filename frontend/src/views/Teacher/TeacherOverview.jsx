@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
-  BookOpen, Calendar, Clock, CheckCircle2, AlertCircle, 
-  FileText, Users, Plus, Award, ArrowRight, UserCheck, BookMarked 
-} from 'lucide-react';
+  BookOpen, Calendar, Clock, CheckCircle, WarningCircle, 
+  FileText, Users, Plus, Medal, ArrowRight, UserCheck, Bookmark 
+} from '@phosphor-icons/react';
 import { 
   class_schedules, assignments, submissions, attendance, 
   daily_diary, student_profiles, users, createAssignment, addDailyDiary 
@@ -101,7 +101,7 @@ export default function TeacherOverview({ user }) {
             onClick={() => setShowAddDiaryModal(true)}
             style={{ padding: '10px 18px', background: 'var(--card-bg)', color: 'var(--text-heading)', border: '1px solid var(--border-strong)', borderRadius: 'var(--r-sm)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer' }}
           >
-            <BookMarked size={16} /> Post Daily Diary
+            <Bookmark size={16} /> Post Daily Diary
           </button>
         </div>
       </div>
@@ -139,7 +139,7 @@ export default function TeacherOverview({ user }) {
           <h3>Daily Diaries Posted</h3>
           <div className="c-card-stat">{recentDiary.length}</div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-muted)' }}>
-            <BookMarked size={18} />
+            <Bookmark size={18} />
             <span style={{ fontSize: '0.85rem' }}>Lecture summaries shared</span>
           </div>
         </div>

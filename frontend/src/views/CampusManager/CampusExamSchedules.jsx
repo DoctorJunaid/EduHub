@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookOpen, Plus, Trash2 } from 'lucide-react';
+import { BookOpen, Plus, Trash } from '@phosphor-icons/react';
 import { getCampusFullData, addExamSchedule, deleteExamSchedule } from '../../data/mockData';
 
 export default function CampusExamSchedules({ user }) {
@@ -102,7 +102,7 @@ export default function CampusExamSchedules({ user }) {
                     style={{ padding: '6px', color: '#ef4444', background: 'var(--bg-color)', border: '1px solid var(--border-light)', borderRadius: 6, cursor: 'pointer' }}
                     title="Delete exam entry"
                   >
-                    <Trash2 size={16} />
+                    <Trash size={16} />
                   </button>
                 </td>
               </tr>

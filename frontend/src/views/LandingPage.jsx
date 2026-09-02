@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star, MapPin, Calendar, Users, Briefcase, GraduationCap, Building2, Video, MessageSquare, Cloud, FileText, ChevronLeft, ChevronRight, X, CheckCircle, Play } from 'lucide-react';
+import { Star, MapPin, Calendar, Users, Briefcase, GraduationCap, Buildings, VideoCamera, ChatCircle, Cloud, FileText, CaretLeft, CaretRight, X, CheckCircle, Play } from '@phosphor-icons/react';
 import { top_alumni, institutes, events } from '../data/mockData';
 import { useNavigate } from 'react-router-dom';
 
@@ -212,7 +212,7 @@ export default function LandingPage({ onGetStarted }) {
                     </div>
                   </div>
                   <div style={{ width: 56, height: 56, borderRadius: '50%', border: '1px solid var(--border-strong)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-heading)', flexShrink: 0 }}>
-                    <ChevronRight size={24} />
+                    <CaretRight size={24} />
                   </div>
                 </div>
               );
@@ -322,8 +322,8 @@ export default function LandingPage({ onGetStarted }) {
       <div style={{ padding: '80px 20px 120px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', fontWeight: 700, color: 'var(--text-heading)', marginBottom: 60 }}>Integrate with your existing tools in seconds</h2>
         <div style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(16px, 4vw, 40px)', alignItems: 'center', minHeight: 120, flexWrap: 'wrap' }}>
-          <div className="floating-icon" style={{ position: 'relative', width: 'clamp(48px, 10vw, 64px)', height: 'clamp(48px, 10vw, 64px)', borderRadius: 16, animation: 'float2 6s infinite' }}><Video size={32} color="#ea4335" /></div>
-          <div className="floating-icon" style={{ position: 'relative', width: 'clamp(56px, 12vw, 72px)', height: 'clamp(56px, 12vw, 72px)', borderRadius: 16, animation: 'float1 7s infinite', transform: 'translateY(-20px)' }}><MessageSquare size={36} color="#4a154b" /></div>
+          <div className="floating-icon" style={{ position: 'relative', width: 'clamp(48px, 10vw, 64px)', height: 'clamp(48px, 10vw, 64px)', borderRadius: 16, animation: 'float2 6s infinite' }}><VideoCamera size={32} color="#ea4335" /></div>
+          <div className="floating-icon" style={{ position: 'relative', width: 'clamp(56px, 12vw, 72px)', height: 'clamp(56px, 12vw, 72px)', borderRadius: 16, animation: 'float1 7s infinite', transform: 'translateY(-20px)' }}><ChatCircle size={36} color="#4a154b" /></div>
           <div className="floating-icon" style={{ position: 'relative', width: 'clamp(72px, 15vw, 96px)', height: 'clamp(72px, 15vw, 96px)', borderRadius: 24, animation: 'float3 5s infinite' }}><Cloud size={48} color="#0056e0" /></div>
           <div className="floating-icon" style={{ position: 'relative', width: 'clamp(56px, 12vw, 72px)', height: 'clamp(56px, 12vw, 72px)', borderRadius: 16, animation: 'float2 8s infinite', transform: 'translateY(-20px)' }}><FileText size={36} color="#2563eb" /></div>
           <div className="floating-icon" style={{ position: 'relative', width: 'clamp(48px, 10vw, 64px)', height: 'clamp(48px, 10vw, 64px)', borderRadius: 16, animation: 'float1 6s infinite' }}><Calendar size={32} color="#16a34a" /></div>
@@ -349,8 +349,8 @@ export default function LandingPage({ onGetStarted }) {
               </h2>
 
               <div className="xcard-test-controls">
-                <div className="xcard-test-btn"><ChevronLeft size={24} /></div>
-                <div className="xcard-test-btn active"><ChevronRight size={24} /></div>
+                <div className="xcard-test-btn"><CaretLeft size={24} /></div>
+                <div className="xcard-test-btn active"><CaretRight size={24} /></div>
               </div>
             </div>
 

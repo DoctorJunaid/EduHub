@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { ChevronRight, Home } from 'lucide-react';
+import { CaretRight, House } from '@phosphor-icons/react';
 import { institutes } from '../data/mockData'; // To resolve institute names
 
 export default function Breadcrumbs() {
@@ -14,7 +14,7 @@ export default function Breadcrumbs() {
   return (
     <div className="breadcrumbs">
       <div className="breadcrumb-link" onClick={() => navigate('/')}>
-        <Home size={16} />
+        <House size={16} />
       </div>
       
       {paths.map((path, idx) => {
@@ -30,7 +30,7 @@ export default function Breadcrumbs() {
 
         return (
           <React.Fragment key={path}>
-            <ChevronRight size={14} color="var(--border-strong)" />
+            <CaretRight size={14} color="var(--border-strong)" />
             {isLast ? (
               <span className="breadcrumb-active">{displayName}</span>
             ) : (

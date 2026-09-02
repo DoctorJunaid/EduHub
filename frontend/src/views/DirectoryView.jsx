@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Search, Filter, MoreVertical, Mail, Phone } from 'lucide-react';
+import { MagnifyingGlass, Faders, DotsThreeVertical, EnvelopeSimple, Phone } from '@phosphor-icons/react';
 import { users } from '../data/mockData';
 
 export default function DirectoryView({ user }) {
   const [filter, setFilter] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Filter out the super_admin from the directory for a cleaner look
+  // Faders out the super_admin from the directory for a cleaner look
   let directoryUsers = users.filter(u => u.role !== 'super_admin');
 
   if (filter !== 'All') {
@@ -40,10 +40,10 @@ export default function DirectoryView({ user }) {
 
       <div style={{ display: 'flex', gap: 16, marginBottom: 8 }}>
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', background: 'var(--card-bg)', border: '1px solid var(--border-strong)', padding: '12px 16px', borderRadius: 'var(--r-md)' }}>
-          <Search size={20} color="var(--text-muted)" style={{ marginRight: 12 }} />
+          <MagnifyingGlass size={20} color="var(--text-muted)" style={{ marginRight: 12 }} />
           <input
             type="text"
-            placeholder="Search for students, teachers, or administrators..."
+            placeholder="MagnifyingGlass for students, teachers, or administrators..."
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
             style={{ border: 'none', background: 'transparent', outline: 'none', width: '100%', fontSize: '1rem', color: 'var(--text-main)' }}
@@ -66,7 +66,7 @@ export default function DirectoryView({ user }) {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, color: 'var(--text-main)', fontSize: '0.9rem' }}>
-                <Mail size={16} color="var(--text-muted)" />
+                <EnvelopeSimple size={16} color="var(--text-muted)" />
                 {u.email}
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, color: 'var(--text-main)', fontSize: '0.9rem' }}>

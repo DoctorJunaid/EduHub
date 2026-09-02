@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, MapPin, Users, GraduationCap, Building2, ExternalLink, Calendar, Edit2, ShieldCheck, Mail, Phone } from 'lucide-react';
+import { ArrowLeft, MapPin, Users, GraduationCap, Buildings, ArrowSquareOut, Calendar, PencilSimple, ShieldCheck, EnvelopeSimple, Phone } from '@phosphor-icons/react';
 import { getInstituteData } from '../../data/mockData';
 
 export default function InstituteDetail() {
@@ -28,17 +28,17 @@ export default function InstituteDetail() {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8 }}>
               <h1 style={{ fontSize: '2.5rem', color: 'var(--text-heading)', lineHeight: 1.1, margin: 0 }}>{inst.name}</h1>
-              <span className={`status-pill ${inst.status === 'Active' || !inst.status ? 'completed' : 'inprogress'}`}>
+              <span className={`status-pill ${inst.status === 'Active' || !inst.status ? 'neutral' : 'neutral'}`}>
                 {inst.status || 'Active'}
               </span>
-              <span className="status-pill purple" style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+              <span className="status-pill neutral" style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                 <ShieldCheck size={14} /> {inst.board}
               </span>
             </div>
             
             <div style={{ display: 'flex', alignItems: 'center', gap: 24, color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}><Building2 size={16} /> {inst.type}</span>
-              {inst.email && <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}><Mail size={16} /> {inst.email}</span>}
+              <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}><Buildings size={16} /> {inst.type}</span>
+              {inst.email && <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}><EnvelopeSimple size={16} /> {inst.email}</span>}
               {inst.phone && <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}><Phone size={16} /> {inst.phone}</span>}
               <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}><Calendar size={16} /> Registered: {new Date(inst.createdAt).toLocaleDateString()}</span>
             </div>
@@ -48,16 +48,16 @@ export default function InstituteDetail() {
         <div style={{ display: 'flex', gap: 12 }}>
           <button 
             onClick={() => window.open(`/institute/${inst.id}`, '_blank')}
-            style={{ padding: '12px 24px', borderRadius: 'var(--r-full)', border: '1px solid var(--border-strong)', background: 'var(--card-bg)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 8 }}
+            style={{ padding: '12px 24px', borderRadius: 'var(--r-full)', border: '1px solid var(--border-strong)', background: 'var(--card-bg)', color: 'var(--text-heading)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 8 }}
           >
-            <ExternalLink size={16} /> Public Page
+            <ArrowSquareOut size={16} /> Public Page
           </button>
           <button 
             onClick={() => navigate(`/dashboard/institutes/${inst.id}/edit`)}
             className="nav-btn-primary"
-            style={{ padding: '12px 32px', borderRadius: 'var(--r-full)', border: 'none', background: 'var(--primary)', color: '#fff', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 8, boxShadow: '0 4px 12px rgba(16, 185, 129, 0.2)' }}
+            style={{ padding: '12px 32px', borderRadius: 'var(--r-full)', border: 'none', background: 'var(--text-heading)', color: '#fff', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 8, boxShadow: '0 4px 12px rgba(15, 23, 42, 0.2)' }}
           >
-            <Edit2 size={16} /> Edit Details
+            <PencilSimple size={16} /> Edit Details
           </button>
         </div>
       </div>
@@ -72,7 +72,7 @@ export default function InstituteDetail() {
             <div className="c-card" style={{ minHeight: 'auto', padding: 24 }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
                 <h3 style={{ margin: 0 }}>Total Campuses</h3>
-                <div style={{ width: 40, height: 40, borderRadius: '50%', background: '#fef3c7', color: '#d97706', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'var(--border-light)', color: 'var(--text-heading)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <MapPin size={20} />
                 </div>
               </div>
@@ -82,7 +82,7 @@ export default function InstituteDetail() {
             <div className="c-card" style={{ minHeight: 'auto', padding: 24 }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
                 <h3 style={{ margin: 0 }}>Enrolled Students</h3>
-                <div style={{ width: 40, height: 40, borderRadius: '50%', background: '#e0e7ff', color: '#4f46e5', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'var(--border-light)', color: 'var(--text-heading)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Users size={20} />
                 </div>
               </div>
@@ -92,7 +92,7 @@ export default function InstituteDetail() {
             <div className="c-card" style={{ minHeight: 'auto', padding: 24 }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
                 <h3 style={{ margin: 0 }}>Total Faculty</h3>
-                <div style={{ width: 40, height: 40, borderRadius: '50%', background: '#dcfce7', color: '#16a34a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'var(--border-light)', color: 'var(--text-heading)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <GraduationCap size={20} />
                 </div>
               </div>
@@ -122,7 +122,7 @@ export default function InstituteDetail() {
                     <tr key={b.id}>
                       <td style={{ fontWeight: 600, color: 'var(--text-heading)' }}>{b.name}</td>
                       <td>{b.address}</td>
-                      <td><span className="status-pill completed">Operational</span></td>
+                      <td><span className="status-pill neutral">Operational</span></td>
                     </tr>
                   ))}
                 </tbody>

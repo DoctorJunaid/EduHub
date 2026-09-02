@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { UserCheck, CheckCircle2, XCircle, Clock, Users, Calendar, Save, Check } from 'lucide-react';
+import { UserCheck, CheckCircle, XCircle, Clock, Users, Calendar, FloppyDisk, Check } from '@phosphor-icons/react';
 import { 
   student_profiles, users, attendance, updateStudentAttendance, 
   class_schedules 
@@ -72,7 +72,7 @@ export default function TeacherAttendance({ user }) {
           onClick={handleSaveAttendance}
           style={{ padding: '10px 22px', background: 'var(--primary)', color: '#fff', borderRadius: 'var(--r-sm)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 8, border: 'none', cursor: 'pointer', boxShadow: '0 2px 8px rgba(5,150,105,0.2)' }}
         >
-          <Save size={16} /> Save Attendance
+          <FloppyDisk size={16} /> FloppyDisk Attendance
         </button>
       </div>
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Bell, Hexagon } from 'lucide-react';
+import { MagnifyingGlass, Bell, Hexagon } from '@phosphor-icons/react';
 import { Routes, Route, useNavigate, useLocation, Navigate } from 'react-router-dom';
 import SuperAdminDashboard from './views/SuperAdminDashboard';
 import InstitutesList from './views/SuperAdmin/InstitutesList';
@@ -245,7 +245,7 @@ export default function App() {
             <div className="top-header">
               <Breadcrumbs />
               <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
-                <button style={{ color: 'var(--text-muted)' }}><Search size={20} /></button>
+                <button style={{ color: 'var(--text-muted)' }}><MagnifyingGlass size={20} /></button>
                 <button style={{ position: 'relative', color: 'var(--text-muted)' }}>
                   <Bell size={20} />
                   <div style={{ position:'absolute', top:-2, right:-2, width:8, height:8, background:'var(--red)', borderRadius:'50%' }}></div>

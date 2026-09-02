@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookMarked, Calendar, BookOpen, Clock, FileText, CheckCircle2 } from 'lucide-react';
+import { Bookmark, Calendar, BookOpen, Clock, FileText, CheckCircle } from '@phosphor-icons/react';
 import { daily_diary, teacher_profiles, users } from '../../data/mockData';
 
 export default function StudentDailyDiary({ user }) {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Award, Plus, Edit2, Save, Check, Filter } from 'lucide-react';
+import { Medal, Plus, PencilSimple, FloppyDisk, Check, Faders } from '@phosphor-icons/react';
 import { 
   student_profiles, users, student_performance, recordStudentGrade, 
   class_schedules 
@@ -235,7 +235,7 @@ export default function TeacherGradebook({ user }) {
                   type="submit" 
                   style={{ padding: '10px 24px', background: 'var(--primary)', color: '#fff', borderRadius: 8, fontWeight: 600, border: 'none', cursor: 'pointer' }}
                 >
-                  Save to Gradebook
+                  FloppyDisk to Gradebook
                 </button>
               </div>
             </form>

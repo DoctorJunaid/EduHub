@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Calendar, Clock, UserCheck, MapPin, CheckCircle2 } from 'lucide-react';
+import { BookOpen, Calendar, Clock, UserCheck, MapPin, CheckCircle } from '@phosphor-icons/react';
 import { class_schedules, teacher_profiles, users } from '../../data/mockData';
 
 export default function StudentCourses({ user }) {

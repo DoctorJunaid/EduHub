@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CreditCard, Plus, CheckCircle2, Clock, AlertTriangle, Download, Search } from 'lucide-react';
+import { CreditCard, Plus, CheckCircle, Clock, Warning, DownloadSimple, MagnifyingGlass } from '@phosphor-icons/react';
 import { getCampusFees, markFeeAsPaid, addFeeRecord, student_profiles, users } from '../../data/mockData';
 
 export default function CampusFeeManagement({ user }) {
@@ -87,10 +87,10 @@ export default function CampusFeeManagement({ user }) {
       <div className="table-card">
         <div className="table-header" style={{ padding: '20px 24px', borderBottom: '1px solid var(--border-light)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div className="search-bar" style={{ display: 'flex', alignItems: 'center', gap: 12, background: 'var(--bg-color)', padding: '10px 16px', borderRadius: '8px', width: '300px', border: '1px solid var(--border-strong)' }}>
-            <Search size={18} color="var(--text-muted)" />
+            <MagnifyingGlass size={18} color="var(--text-muted)" />
             <input 
               type="text" 
-              placeholder="Search by voucher or student..." 
+              placeholder="MagnifyingGlass by voucher or student..." 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               style={{ border: 'none', background: 'transparent', outline: 'none', width: '100%', color: 'var(--text-main)' }}

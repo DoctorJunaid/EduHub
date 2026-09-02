@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
-  BookOpen, Calendar, Clock, CheckCircle2, AlertCircle, 
-  FileText, Award, CreditCard, BookMarked, ArrowRight, User 
-} from 'lucide-react';
+  BookOpen, Calendar, Clock, CheckCircle, WarningCircle, 
+  FileText, Medal, CreditCard, Bookmark, ArrowRight, User 
+} from '@phosphor-icons/react';
 import { 
   class_schedules, attendance, assignments, submissions, 
   student_performance, fee_records, daily_diary, teacher_profiles, users 
@@ -94,7 +94,7 @@ export default function StudentOverview({ user }) {
           <h3>Attendance Rate</h3>
           <div className="c-card-stat">{attendanceRate}%</div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-muted)' }}>
-            <CheckCircle2 size={18} />
+            <CheckCircle size={18} />
             <span style={{ fontSize: '0.85rem' }}>{presentClasses} / {totalClasses} lectures attended</span>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function StudentOverview({ user }) {
           <h3>Current CGPA</h3>
           <div className="c-card-stat">{totalGpa}</div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-muted)' }}>
-            <Award size={18} />
+            <Medal size={18} />
             <span style={{ fontSize: '0.85rem' }}>Out of 4.0 scale</span>
           </div>
         </div>
@@ -122,7 +122,7 @@ export default function StudentOverview({ user }) {
       {unpaidFee && (
         <div style={{ background: 'var(--card-bg)', border: '1px solid #fcd34d', borderLeft: '4px solid var(--yellow)', padding: '16px 20px', borderRadius: 'var(--r-md)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <AlertCircle size={22} color="var(--yellow)" />
+            <WarningCircle size={22} color="var(--yellow)" />
             <div>
               <div style={{ fontWeight: 600, color: 'var(--text-heading)' }}>Pending Tuition Fee Voucher: {unpaidFee.voucherNo}</div>
               <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Amount: <strong>PKR {unpaidFee.amount.toLocaleString()}</strong> • Due Date: {unpaidFee.dueDate}</div>

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
   Users, UserCheck, Calendar, CreditCard, BookOpen, 
-  MapPin, Plus, UserPlus, Filter, Eye, Clock, CheckCircle2 
-} from 'lucide-react';
+  MapPin, Plus, UserPlus, Faders, Eye, Clock, CheckCircle 
+} from '@phosphor-icons/react';
 import { 
   getCampusFullData, getCampusFees, addStudent, addTeacher, 
   campus_branches, users 

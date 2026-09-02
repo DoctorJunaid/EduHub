@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { PaperPlaneRight, WarningCircle, CheckCircle } from '@phosphor-icons/react';
 import { getInstituteData } from '../../data/mockData';
 
 export default function AlertsBroadcast({ user }) {
@@ -32,13 +32,13 @@ export default function AlertsBroadcast({ user }) {
     <div className="content-container animate-fade-in" style={{ maxWidth: 800 }}>
       <div className="page-header">
         <h1>Broadcast Alerts</h1>
-        <p style={{ color: 'var(--text-muted)' }}>Send real-time notifications to staff and students across your campuses.</p>
+        <p style={{ color: 'var(--text-muted)' }}>PaperPlaneRight real-time notifications to staff and students across your campuses.</p>
       </div>
 
       <div className="table-card" style={{ padding: 32 }}>
         {status === 'success' ? (
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '40px 0', color: 'var(--green)' }}>
-            <CheckCircle2 size={64} style={{ marginBottom: 16 }} />
+            <CheckCircle size={64} style={{ marginBottom: 16 }} />
             <h2 style={{ margin: 0, fontSize: '1.4rem' }}>Message Broadcasted Successfully</h2>
             <p style={{ color: 'var(--text-muted)', marginTop: 8 }}>The alert has been pushed to the selected audience.</p>
           </div>
@@ -102,7 +102,7 @@ export default function AlertsBroadcast({ user }) {
                 {status === 'sending' ? (
                   <>Sending...</>
                 ) : (
-                  <><Send size={18} /> Broadcast Now</>
+                  <><PaperPlaneRight size={18} /> Broadcast Now</>
                 )}
               </button>
             </div>

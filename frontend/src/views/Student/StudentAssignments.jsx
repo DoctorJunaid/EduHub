@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FileText, CheckCircle2, Clock, UploadCloud, ExternalLink, Award } from 'lucide-react';
+import { FileText, CheckCircle, Clock, CloudArrowUp, ArrowSquareOut, Medal } from '@phosphor-icons/react';
 import { assignments, submissions, submitAssignment } from '../../data/mockData';
 
 export default function StudentAssignments({ user }) {

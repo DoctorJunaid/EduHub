@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, Clock, Plus, Trash2 } from 'lucide-react';
+import { Calendar, Clock, Plus, Trash } from '@phosphor-icons/react';
 import { getCampusFullData, addClassSchedule, deleteClassSchedule } from '../../data/mockData';
 
 export default function CampusClassSchedules({ user }) {
@@ -109,7 +109,7 @@ export default function CampusClassSchedules({ user }) {
                     style={{ padding: '6px', color: '#ef4444', background: 'var(--bg-color)', border: '1px solid var(--border-light)', borderRadius: 6, cursor: 'pointer' }}
                     title="Remove class"
                   >
-                    <Trash2 size={16} />
+                    <Trash size={16} />
                   </button>
                 </td>
               </tr>

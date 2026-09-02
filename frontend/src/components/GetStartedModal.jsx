@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle, ChevronDown, ArrowRight } from 'lucide-react';
+import { X, CheckCircle, CaretDown, ArrowRight } from '@phosphor-icons/react';
 
 export default function GetStartedModal({ isOpen, onClose }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -177,7 +177,7 @@ export default function GetStartedModal({ isOpen, onClose }) {
                     <option value="coaching" style={{ color: textMain }}>Academy / Coaching Center</option>
                     <option value="other" style={{ color: textMain }}>Other</option>
                   </select>
-                  <ChevronDown size={18} color={textMuted} style={{ position: 'absolute', right: 4, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
+                  <CaretDown size={18} color={textMuted} style={{ position: 'absolute', right: 4, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
                 </div>
               </div>
 

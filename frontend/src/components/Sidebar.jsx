@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Hexagon, LayoutDashboard, Building2, Calendar, MessageSquare, Menu, Settings, LogOut, Moon, Sun, ChevronRight, Users, BookOpen, UserCheck, CheckCircle2, CreditCard, Award, FileText, BookMarked } from 'lucide-react';
+import { Hexagon, SquaresFour, Buildings, Calendar, ChatCircle, List, Gear, SignOut, Moon, Sun, CaretRight, Users, BookOpen, UserCheck, CheckCircle, CreditCard, Medal, FileText, Bookmark } from '@phosphor-icons/react';
 
 export default function Sidebar({ user, isDark, setIsDark, onLogout }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -9,60 +9,60 @@ export default function Sidebar({ user, isDark, setIsDark, onLogout }) {
 
   // Define navigation based on role
   let navItems = [
-    { label: 'Overview', icon: LayoutDashboard, path: '/dashboard' }
+    { label: 'Overview', icon: SquaresFour, path: '/dashboard' }
   ];
 
   if (user?.role === 'super_admin') {
     navItems.push(
-      { label: 'Institutes', icon: Building2, path: '/dashboard/institutes' }
+      { label: 'Institutes', icon: Buildings, path: '/dashboard/institutes' }
     );
   } else if (user?.role === 'institute_admin') {
     navItems.push(
-      { label: 'Campuses', icon: Building2, path: '/dashboard/campuses' },
+      { label: 'Campuses', icon: Buildings, path: '/dashboard/campuses' },
       { label: 'Staff Directory', icon: Users, path: '/dashboard/staff' },
       { label: 'Students', icon: BookOpen, path: '/dashboard/students' },
-      { label: 'Broadcast Alerts', icon: MessageSquare, path: '/dashboard/alerts' }
+      { label: 'Broadcast Alerts', icon: ChatCircle, path: '/dashboard/alerts' }
     );
   } else if (user?.role === 'campus_manager') {
     navItems = [
-      { label: 'Campus Overview', icon: LayoutDashboard, path: '/dashboard' },
+      { label: 'Campus Overview', icon: SquaresFour, path: '/dashboard' },
       { label: 'Faculty Directory', icon: Users, path: '/dashboard/staff' },
       { label: 'Students Directory', icon: BookOpen, path: '/dashboard/students' },
       { label: 'Class Timetable', icon: Calendar, path: '/dashboard/classes' },
       { label: 'Exam Schedules', icon: BookOpen, path: '/dashboard/exams' },
       { label: 'Teacher Attendance', icon: UserCheck, path: '/dashboard/teacher-attendance' },
-      { label: 'Student Attendance', icon: CheckCircle2, path: '/dashboard/student-attendance' },
+      { label: 'Student Attendance', icon: CheckCircle, path: '/dashboard/student-attendance' },
       { label: 'Fee Management', icon: CreditCard, path: '/dashboard/fees' },
-      { label: 'Exam Results & GPA', icon: Award, path: '/dashboard/results' },
-      { label: 'Messages', icon: MessageSquare, path: '/dashboard/messages' }
+      { label: 'Exam Results & GPA', icon: Medal, path: '/dashboard/results' },
+      { label: 'Messages', icon: ChatCircle, path: '/dashboard/messages' }
     ];
   } else if (user?.role === 'teacher') {
     navItems = [
-      { label: 'Overview', icon: LayoutDashboard, path: '/dashboard' },
+      { label: 'Overview', icon: SquaresFour, path: '/dashboard' },
       { label: 'My Classes', icon: Calendar, path: '/dashboard/classes' },
       { label: 'Assignments & Grading', icon: FileText, path: '/dashboard/assignments' },
       { label: 'Take Attendance', icon: UserCheck, path: '/dashboard/attendance' },
-      { label: 'Daily Diary', icon: BookMarked, path: '/dashboard/diary' },
-      { label: 'Gradebook & Marks', icon: Award, path: '/dashboard/gradebook' },
-      { label: 'Messages', icon: MessageSquare, path: '/dashboard/messages' }
+      { label: 'Daily Diary', icon: Bookmark, path: '/dashboard/diary' },
+      { label: 'Gradebook & Marks', icon: Medal, path: '/dashboard/gradebook' },
+      { label: 'Messages', icon: ChatCircle, path: '/dashboard/messages' }
     ];
   } else if (user?.role === 'student') {
     navItems = [
-      { label: 'Overview', icon: LayoutDashboard, path: '/dashboard' },
+      { label: 'Overview', icon: SquaresFour, path: '/dashboard' },
       { label: 'My Courses', icon: BookOpen, path: '/dashboard/courses' },
       { label: 'Assignments', icon: FileText, path: '/dashboard/assignments' },
-      { label: 'Attendance Record', icon: CheckCircle2, path: '/dashboard/attendance' },
-      { label: 'Daily Diary', icon: BookMarked, path: '/dashboard/diary' },
-      { label: 'Grades & CGPA', icon: Award, path: '/dashboard/results' },
+      { label: 'Attendance Record', icon: CheckCircle, path: '/dashboard/attendance' },
+      { label: 'Daily Diary', icon: Bookmark, path: '/dashboard/diary' },
+      { label: 'Grades & CGPA', icon: Medal, path: '/dashboard/results' },
       { label: 'Fee Vouchers', icon: CreditCard, path: '/dashboard/fees' },
-      { label: 'Messages', icon: MessageSquare, path: '/dashboard/messages' }
+      { label: 'Messages', icon: ChatCircle, path: '/dashboard/messages' }
     ];
   } else {
     // For other roles, keep generic tabs
     navItems.push(
       { label: 'Directory', icon: Users, path: '/dashboard/directory' },
       { label: 'Calendar', icon: Calendar, path: '/dashboard/calendar' },
-      { label: 'Messages', icon: MessageSquare, path: '/dashboard/messages' }
+      { label: 'Messages', icon: ChatCircle, path: '/dashboard/messages' }
     );
   }
 
@@ -84,7 +84,7 @@ export default function Sidebar({ user, isDark, setIsDark, onLogout }) {
           onClick={() => setIsCollapsed(!isCollapsed)}
           style={{ color: 'var(--text-muted)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
         >
-          <Menu size={20} />
+          <List size={20} />
         </button>
       </div>
 
@@ -128,7 +128,7 @@ export default function Sidebar({ user, isDark, setIsDark, onLogout }) {
           onClick={onLogout}
           style={{ color: '#ef4444' }}
         >
-          <LogOut size={20} />
+          <SignOut size={20} />
           <span>Sign Out</span>
         </div>
       </div>

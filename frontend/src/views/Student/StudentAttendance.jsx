@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserCheck, CheckCircle2, XCircle, Clock, Calendar } from 'lucide-react';
+import { UserCheck, CheckCircle, XCircle, Clock, Calendar } from '@phosphor-icons/react';
 import { attendance } from '../../data/mockData';
 
 export default function StudentAttendance({ user }) {
@@ -34,7 +34,7 @@ export default function StudentAttendance({ user }) {
           <h3>Overall Attendance</h3>
           <div className="c-card-stat">{percentage}%</div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-muted)' }}>
-            <CheckCircle2 size={18} />
+            <CheckCircle size={18} />
             <span style={{ fontSize: '0.85rem' }}>Eligibility threshold: 75%</span>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle2, Search, Filter } from 'lucide-react';
+import { CheckCircle, MagnifyingGlass, Faders } from '@phosphor-icons/react';
 import { getCampusFullData, updateStudentAttendance } from '../../data/mockData';
 
 export default function CampusStudentAttendance({ user }) {
@@ -33,10 +33,10 @@ export default function CampusStudentAttendance({ user }) {
       <div className="table-card">
         <div className="table-header" style={{ padding: '20px 24px', borderBottom: '1px solid var(--border-light)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div className="search-bar" style={{ display: 'flex', alignItems: 'center', gap: 12, background: 'var(--bg-color)', padding: '10px 16px', borderRadius: '8px', width: '300px', border: '1px solid var(--border-strong)' }}>
-            <Search size={18} color="var(--text-muted)" />
+            <MagnifyingGlass size={18} color="var(--text-muted)" />
             <input 
               type="text" 
-              placeholder="Filter by student or subject..." 
+              placeholder="Faders by student or subject..." 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               style={{ border: 'none', background: 'transparent', outline: 'none', width: '100%', color: 'var(--text-main)' }}

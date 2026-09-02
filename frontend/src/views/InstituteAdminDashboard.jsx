@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Filter, Users, Building2, UserCheck, GraduationCap } from 'lucide-react';
+import { Faders, Users, Buildings, UserCheck, GraduationCap } from '@phosphor-icons/react';
 import { getInstituteData, users } from '../data/mockData';
 
 export default function InstituteAdminDashboard({ user }) {
@@ -44,7 +44,7 @@ export default function InstituteAdminDashboard({ user }) {
           <h3>Campus Branches</h3>
           <div className="c-card-stat">{data.branches.length}</div>
           <div style={{ display:'flex', alignItems:'center', gap:8, color:'var(--text-muted)' }}>
-            <Building2 size={18} />
+            <Buildings size={18} />
             <span style={{ fontSize:'0.85rem' }}>Operating locations</span>
           </div>
         </div>
@@ -82,7 +82,7 @@ export default function InstituteAdminDashboard({ user }) {
       <div className="table-card">
         <div className="table-header">
           <h2>Registered Students</h2>
-          <button style={{border:'1px solid var(--border-strong)', padding:6, borderRadius:'50%'}}><Filter size={16}/></button>
+          <button style={{border:'1px solid var(--border-strong)', padding:6, borderRadius:'50%'}}><Faders size={16}/></button>
         </div>
         <table className="data-table">
           <thead>

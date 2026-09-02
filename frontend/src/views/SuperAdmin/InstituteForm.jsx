@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, Save, Building2, Image as ImageIcon, MapPin, Globe, Phone, Mail } from 'lucide-react';
+import { ArrowLeft, FloppyDisk, Buildings, Image as ImageIcon, MapPin, Globe, Phone, EnvelopeSimple } from '@phosphor-icons/react';
 import { institutes, addInstitute, updateInstitute } from '../../data/mockData';
 
 export default function InstituteForm() {
@@ -60,7 +60,7 @@ export default function InstituteForm() {
         
         {/* Section 1: Basic Info */}
         <h3 style={{ fontSize: '1.2rem', color: 'var(--text-heading)', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 8 }}>
-          <Building2 size={20} color="var(--primary)" /> General Information
+          <Buildings size={20} color="var(--primary)" /> General Information
         </h3>
         
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24, marginBottom: 40 }}>
@@ -120,7 +120,7 @@ export default function InstituteForm() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24, marginBottom: 40 }}>
           <div style={{ display: 'flex', gap: 24 }}>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: 6 }}><Mail size={14}/> Email Address</label>
+              <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: 6 }}><EnvelopeSimple size={14}/> Email Address</label>
               <input 
                 type="email" name="email" value={formData.email} onChange={handleChange}
                 style={{ width: '100%', padding: '16px', border: '1px solid var(--border-strong)', borderRadius: 'var(--r-md)', outline: 'none', fontSize: '1rem', background: 'var(--bg-color)' }} 
@@ -178,7 +178,7 @@ export default function InstituteForm() {
             className="nav-btn-primary"
             style={{ padding: '14px 32px', borderRadius: 'var(--r-full)', fontWeight: 600, color: '#fff', background: 'var(--primary)', display: 'flex', alignItems: 'center', gap: 8, border: 'none', boxShadow: '0 4px 12px rgba(16, 185, 129, 0.2)' }}
           >
-            <Save size={18} /> {isEdit ? 'Save Changes' : 'Register Institute'}
+            <FloppyDisk size={18} /> {isEdit ? 'FloppyDisk Changes' : 'Register Institute'}
           </button>
         </div>
       </form>

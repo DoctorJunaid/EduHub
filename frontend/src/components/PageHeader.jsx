@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Bell } from 'lucide-react';
+import { MagnifyingGlass, Bell } from '@phosphor-icons/react';
 
 export default function PageHeader({ title, subtitle, actions }) {
   return (
@@ -10,8 +10,8 @@ export default function PageHeader({ title, subtitle, actions }) {
       </div>
       <div className="header-actions">
         <div className="search-box">
-          <Search size={16} className="search-icon" />
-          <input type="text" placeholder="Search anything..." />
+          <MagnifyingGlass size={16} className="search-icon" />
+          <input type="text" placeholder="MagnifyingGlass anything..." />
         </div>
         <button className="icon-btn">
           <Bell size={18} />

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Award, Search, TrendingUp, Sparkles, Filter } from 'lucide-react';
+import { Medal, MagnifyingGlass, TrendUp, Sparkle, Faders } from '@phosphor-icons/react';
 import { getCampusFullData } from '../../data/mockData';
 
 export default function CampusExamResults({ user }) {
@@ -31,7 +31,7 @@ export default function CampusExamResults({ user }) {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16 }}>
         <div className="table-card" style={{ padding: 20 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, color: 'var(--primary)' }}>
-            <TrendingUp size={20} />
+            <TrendUp size={20} />
             <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>Campus Average GPA</span>
           </div>
           <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--text-heading)', marginTop: 8 }}>
@@ -41,7 +41,7 @@ export default function CampusExamResults({ user }) {
 
         <div className="table-card" style={{ padding: 20 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, color: 'var(--text-muted)' }}>
-            <Sparkles size={20} />
+            <Sparkle size={20} />
             <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>Dean's Honor Roll</span>
           </div>
           <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--text-heading)', marginTop: 8 }}>
@@ -51,7 +51,7 @@ export default function CampusExamResults({ user }) {
 
         <div className="table-card" style={{ padding: 20 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, color: 'var(--text-muted)' }}>
-            <Award size={20} />
+            <Medal size={20} />
             <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>Pass Rate</span>
           </div>
           <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--text-heading)', marginTop: 8 }}>
@@ -64,10 +64,10 @@ export default function CampusExamResults({ user }) {
       <div className="table-card">
         <div className="table-header" style={{ padding: '20px 24px', borderBottom: '1px solid var(--border-light)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div className="search-bar" style={{ display: 'flex', alignItems: 'center', gap: 12, background: 'var(--bg-color)', padding: '10px 16px', borderRadius: '8px', width: '300px', border: '1px solid var(--border-strong)' }}>
-            <Search size={18} color="var(--text-muted)" />
+            <MagnifyingGlass size={18} color="var(--text-muted)" />
             <input 
               type="text" 
-              placeholder="Search by student or course..." 
+              placeholder="MagnifyingGlass by student or course..." 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               style={{ border: 'none', background: 'transparent', outline: 'none', width: '100%', color: 'var(--text-main)' }}

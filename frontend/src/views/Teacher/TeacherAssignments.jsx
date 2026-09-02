@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, Search, Filter, FileText, CheckCircle2, Clock, Trash2, Edit2, Eye, ExternalLink } from 'lucide-react';
+import { Plus, MagnifyingGlass, Faders, FileText, CheckCircle, Clock, Trash, PencilSimple, Eye, ArrowSquareOut } from '@phosphor-icons/react';
 import { 
   assignments, submissions, student_profiles, users, 
   createAssignment, deleteAssignment, gradeSubmission 
@@ -112,7 +112,7 @@ export default function TeacherAssignments({ user }) {
                   style={{ color: 'var(--text-muted)', background: 'none', border: 'none', cursor: 'pointer' }}
                   title="Delete Assignment"
                 >
-                  <Trash2 size={15} />
+                  <Trash size={15} />
                 </button>
               </div>
               <h3 style={{ margin: '8px 0 6px 0', fontSize: '1.05rem', color: 'var(--text-heading)' }}>{asg.title}</h3>
@@ -174,7 +174,7 @@ export default function TeacherAssignments({ user }) {
                       <div style={{ fontSize: '0.85rem', color: 'var(--text-main)', maxWidth: 300 }}>{sub.submissionText}</div>
                       {sub.fileUrl && (
                         <a href={sub.fileUrl} target="_blank" rel="noreferrer" style={{ fontSize: '0.8rem', color: 'var(--primary)', display: 'flex', alignItems: 'center', gap: 4, marginTop: 4 }}>
-                          <ExternalLink size={12} /> View Attached Deliverable
+                          <ArrowSquareOut size={12} /> View Attached Deliverable
                         </a>
                       )}
                     </td>
@@ -324,7 +324,7 @@ export default function TeacherAssignments({ user }) {
               <p style={{ margin: '4px 0 0 0', fontSize: '0.9rem', color: 'var(--text-main)' }}>{gradingSubmission.submissionText}</p>
               {gradingSubmission.fileUrl && (
                 <a href={gradingSubmission.fileUrl} target="_blank" rel="noreferrer" style={{ fontSize: '0.8rem', color: 'var(--primary)', display: 'inline-flex', alignItems: 'center', gap: 4, marginTop: 8 }}>
-                  <ExternalLink size={12} /> Open Submitted File / Repo
+                  <ArrowSquareOut size={12} /> Open Submitted File / Repo
                 </a>
               )}
             </div>

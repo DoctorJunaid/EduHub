@@ -1,5 +1,5 @@
 import React from 'react';
-import { Hexagon, User, Shield, GraduationCap, Briefcase, Building2 } from 'lucide-react';
+import { Hexagon, User, Shield, GraduationCap, Briefcase, Buildings } from '@phosphor-icons/react';
 import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage({ onLogin }) {
@@ -8,7 +8,7 @@ export default function LoginPage({ onLogin }) {
   const demoUsers = [
     { id: 'u_super1', label: 'Super Admin', icon: Shield, desc: 'Full system access & network oversight' },
     { id: 'u_admin1', label: 'Institute Admin', icon: Briefcase, desc: 'Manage institute, branches & alerts' },
-    { id: 'u_manager1', label: 'Campus Manager', icon: Building2, desc: 'Manage classes, exams & branch attendance' },
+    { id: 'u_manager1', label: 'Campus Manager', icon: Buildings, desc: 'Manage classes, exams & branch attendance' },
     { id: 'u_teach1', label: 'Teacher', icon: User, desc: 'Manage assigned classes & evaluations' },
     { id: 'u_stud1', label: 'Student', icon: GraduationCap, desc: 'View timetable, grades & attendance' }
   ];

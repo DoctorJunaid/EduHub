@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { UserCheck, Check, Clock, AlertCircle } from 'lucide-react';
+import { UserCheck, Check, Clock, WarningCircle } from '@phosphor-icons/react';
 import { getCampusFullData, updateTeacherAttendance } from '../../data/mockData';
 
 export default function CampusTeacherAttendance({ user }) {

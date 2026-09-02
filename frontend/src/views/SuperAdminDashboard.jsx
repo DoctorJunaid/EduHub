@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MoreVertical, Filter, Activity, Users, Building, DollarSign, MapPin, BookOpen } from 'lucide-react';
+import { DotsThreeVertical, Faders, Heartbeat, Users, Buildings, CurrencyDollar, MapPin, BookOpen } from '@phosphor-icons/react';
 import { institutes } from '../data/mockData';
 
 export default function SuperAdminDashboard() {
@@ -17,7 +17,7 @@ export default function SuperAdminDashboard() {
           <h3>Registered Institutes</h3>
           <div className="c-card-stat">24</div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-muted)' }}>
-            <Building size={18} />
+            <Buildings size={18} />
             <span style={{ fontSize: '0.85rem' }}>Total networks in system</span>
           </div>
         </div>
@@ -61,7 +61,7 @@ export default function SuperAdminDashboard() {
               <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>Overview of top-performing networks</p>
             </div>
             <button style={{ width: 40, height: 40, borderRadius: '50%', background: 'var(--bg-color)', border: '1px solid var(--border-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-main)', cursor: 'pointer', transition: 'all 0.2s' }}>
-              <Filter size={18} />
+              <Faders size={18} />
             </button>
           </div>
 
@@ -77,7 +77,7 @@ export default function SuperAdminDashboard() {
                     {inst.image ? (
                       <img src={inst.image} alt={inst.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '11px' }} />
                     ) : (
-                      <Building size={20} color="var(--primary)" />
+                      <Buildings size={20} color="var(--primary)" />
                     )}
                   </div>
                   <div style={{ minWidth: 0 }}>
@@ -109,10 +109,10 @@ export default function SuperAdminDashboard() {
           </div>
         </div>
 
-        {/* Premium Activity Feed */}
+        {/* Premium Heartbeat Feed */}
         <div className="table-card" style={{ padding: '32px', background: 'var(--card-bg)', borderRadius: '24px', border: '1px solid var(--border-light)', boxShadow: 'var(--sh-card)' }}>
           <div style={{ marginBottom: '32px' }}>
-            <h2 style={{ fontSize: '1.4rem', color: 'var(--text-heading)', margin: 0, fontWeight: 700 }}>System Activity</h2>
+            <h2 style={{ fontSize: '1.4rem', color: 'var(--text-heading)', margin: 0, fontWeight: 700 }}>System Heartbeat</h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>Real-time event stream</p>
           </div>
           

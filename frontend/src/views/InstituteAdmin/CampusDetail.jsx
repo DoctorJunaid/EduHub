@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { 
-  ArrowLeft, Building2, Calendar, Clock, Users, BookOpen, 
-  GraduationCap, CheckCircle2, XCircle, AlertTriangle, Plus, 
-  MapPin, Award, Trash2, Check, UserCheck, Search, Filter
-} from 'lucide-react';
+  ArrowLeft, Buildings, Calendar, Clock, Users, BookOpen, 
+  GraduationCap, CheckCircle, XCircle, Warning, Plus, 
+  MapPin, Medal, Trash, Check, UserCheck, MagnifyingGlass, Faders
+} from '@phosphor-icons/react';
 import { 
   getCampusFullData, addClassSchedule, deleteClassSchedule, 
   addExamSchedule, deleteExamSchedule, updateTeacherAttendance, 
@@ -145,7 +145,7 @@ export default function CampusDetail({ user }) {
       <div className="table-card" style={{ padding: '28px 32px', background: 'var(--card-bg)', position: 'relative', overflow: 'hidden' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
           <div style={{ width: 64, height: 64, borderRadius: 16, background: 'rgba(16,185,129,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--border-strong)' }}>
-            <Building2 size={32} color="var(--primary)" />
+            <Buildings size={32} color="var(--primary)" />
           </div>
           <div style={{ flex: 1, minWidth: 260 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 4 }}>
@@ -189,8 +189,8 @@ export default function CampusDetail({ user }) {
           { key: 'classes', label: 'Class Timetable', icon: Calendar },
           { key: 'exams', label: 'Exam Schedules', icon: BookOpen },
           { key: 'teacherAttendance', label: 'Teacher Attendance', icon: UserCheck },
-          { key: 'studentAttendance', label: 'Student Attendance', icon: CheckCircle2 },
-          { key: 'performance', label: 'Academic Results', icon: Award },
+          { key: 'studentAttendance', label: 'Student Attendance', icon: CheckCircle },
+          { key: 'performance', label: 'Academic Results', icon: Medal },
         ].map(tab => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.key;
@@ -286,7 +286,7 @@ export default function CampusDetail({ user }) {
                       style={{ padding: '6px', color: '#ef4444', background: 'var(--bg-color)', border: '1px solid var(--border-light)', borderRadius: 6, cursor: 'pointer' }}
                       title="Remove class"
                     >
-                      <Trash2 size={16} />
+                      <Trash size={16} />
                     </button>
                   </td>
                 </tr>
@@ -354,7 +354,7 @@ export default function CampusDetail({ user }) {
                       style={{ padding: '6px', color: '#ef4444', background: 'var(--bg-color)', border: '1px solid var(--border-light)', borderRadius: 6, cursor: 'pointer' }}
                       title="Delete exam entry"
                     >
-                      <Trash2 size={16} />
+                      <Trash size={16} />
                     </button>
                   </td>
                 </tr>

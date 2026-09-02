@@ -609,6 +609,12 @@ img {
   color: #6b21a8;
 }
 
+.status-pill.neutral {
+  background: var(--border-light);
+  color: var(--text-main);
+  border: 1px solid var(--border-strong);
+}
+
 /* ─── Calendar & Timeline (Sidebar widgets) ─────────────── */
 .streak-header {
   font-size: 1.8rem;

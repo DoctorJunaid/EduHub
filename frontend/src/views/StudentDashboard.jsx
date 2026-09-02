@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronLeft, ChevronRight, MoreVertical, Filter } from 'lucide-react';
+import { CaretLeft, CaretRight, DotsThreeVertical, Faders } from '@phosphor-icons/react';
 import { class_schedules, attendance, teacher_profiles, users } from '../data/mockData';
 
 export default function StudentDashboard({ user }) {
@@ -25,7 +25,7 @@ export default function StudentDashboard({ user }) {
               <div className="filter-tab">Grades</div>
               <div className="filter-tab">Certificates</div>
               <div className="filter-tab">Resources</div>
-              <div className="filter-tab"><MoreVertical size={16} /></div>
+              <div className="filter-tab"><DotsThreeVertical size={16} /></div>
             </div>
           </div>
 
@@ -52,7 +52,7 @@ export default function StudentDashboard({ user }) {
           <div className="table-card">
             <div className="table-header">
               <h2>Recent Attendance</h2>
-              <button style={{ border: '1px solid var(--border-strong)', padding: 6, borderRadius: '50%' }}><Filter size={16} /></button>
+              <button style={{ border: '1px solid var(--border-strong)', padding: 6, borderRadius: '50%' }}><Faders size={16} /></button>
             </div>
             <table className="data-table">
               <thead>
@@ -73,7 +73,7 @@ export default function StudentDashboard({ user }) {
                       </span>
                     </td>
                     <td style={{ color: 'var(--text-muted)' }}>{att.status === 'Present' ? 'On time' : 'Absent without leave'}</td>
-                    <td><MoreVertical size={16} color="var(--text-muted)" /></td>
+                    <td><DotsThreeVertical size={16} color="var(--text-muted)" /></td>
                   </tr>
                 ))}
               </tbody>
@@ -88,8 +88,8 @@ export default function StudentDashboard({ user }) {
             <div className="cal-top">
               <span>June 2024</span>
               <div className="cal-nav">
-                <button><ChevronLeft size={16} /></button>
-                <button className="active"><ChevronRight size={16} /></button>
+                <button><CaretLeft size={16} /></button>
+                <button className="active"><CaretRight size={16} /></button>
               </div>
             </div>
             <div className="cal-days">

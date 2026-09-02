@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CreditCard, CheckCircle2, Clock, AlertCircle, Download, ExternalLink, ShieldCheck } from 'lucide-react';
+import { CreditCard, CheckCircle, Clock, WarningCircle, DownloadSimple, ArrowSquareOut, ShieldCheck } from '@phosphor-icons/react';
 import { fee_records, markFeeAsPaid } from '../../data/mockData';
 
 export default function StudentFeeVouchers({ user }) {
@@ -41,7 +41,7 @@ export default function StudentFeeVouchers({ user }) {
           <h3>Total Paid Fees</h3>
           <div className="c-card-stat">PKR {totalPaid.toLocaleString()}</div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-muted)' }}>
-            <CheckCircle2 size={18} />
+            <CheckCircle size={18} />
             <span style={{ fontSize: '0.85rem' }}>Cleared invoices</span>
           </div>
         </div>
@@ -50,7 +50,7 @@ export default function StudentFeeVouchers({ user }) {
           <h3>Pending Dues</h3>
           <div className="c-card-stat" style={{ color: totalDue > 0 ? 'var(--yellow)' : 'var(--text-heading)' }}>PKR {totalDue.toLocaleString()}</div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-muted)' }}>
-            <AlertCircle size={18} />
+            <WarningCircle size={18} />
             <span style={{ fontSize: '0.85rem' }}>Current term balance</span>
           </div>
         </div>
@@ -235,7 +235,7 @@ export default function StudentFeeVouchers({ user }) {
                 onClick={() => window.print()}
                 style={{ padding: '9px 18px', background: 'var(--bg-color)', border: '1px solid var(--border-strong)', borderRadius: 8, fontWeight: 600, color: 'var(--text-main)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6 }}
               >
-                <Download size={15} /> Print Challan
+                <DownloadSimple size={15} /> Print Challan
               </button>
               <button 
                 onClick={() => setViewingVoucher(null)}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, Plus, Building2, MoreVertical, Edit2, Trash2 } from 'lucide-react';
+import { MagnifyingGlass, Plus, Buildings, DotsThreeVertical, PencilSimple, Trash } from '@phosphor-icons/react';
 import { campus_branches, getInstituteData, deleteCampus } from '../../data/mockData';
 
 export default function CampusesList({ user }) {
@@ -44,10 +44,10 @@ export default function CampusesList({ user }) {
       <div className="table-card">
         <div className="table-header" style={{ padding: '20px 24px', borderBottom: '1px solid var(--border-light)' }}>
           <div className="search-bar" style={{ display: 'flex', alignItems: 'center', gap: 12, background: 'var(--bg-color)', padding: '10px 16px', borderRadius: '8px', width: '300px', border: '1px solid var(--border-strong)' }}>
-            <Search size={18} color="var(--text-muted)" />
+            <MagnifyingGlass size={18} color="var(--text-muted)" />
             <input 
               type="text" 
-              placeholder="Search campuses..." 
+              placeholder="MagnifyingGlass campuses..." 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               style={{ border: 'none', background: 'transparent', outline: 'none', width: '100%', color: 'var(--text-main)' }}
@@ -79,7 +79,7 @@ export default function CampusesList({ user }) {
                 <td>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
                     <div style={{ width: 44, height: 44, borderRadius: 12, background: 'var(--bg-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--border-light)' }}>
-                      <Building2 size={20} color="var(--primary)" />
+                      <Buildings size={20} color="var(--primary)" />
                     </div>
                     <div>
                       <span style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-heading)', display: 'block', marginBottom: 2 }}>{branch.name}</span>
@@ -104,14 +104,14 @@ export default function CampusesList({ user }) {
                       style={{ padding: 8, color: 'var(--text-muted)', background: 'var(--bg-color)', borderRadius: 8, border: '1px solid var(--border-light)', cursor: 'pointer' }}
                       title="Edit Campus Details"
                     >
-                      <Edit2 size={16} />
+                      <PencilSimple size={16} />
                     </button>
                     <button 
                       onClick={(e) => handleDelete(branch.id, e)}
                       style={{ padding: 8, color: '#ef4444', background: 'var(--bg-color)', borderRadius: 8, border: '1px solid var(--border-light)', cursor: 'pointer' }}
                       title="Delete Campus"
                     >
-                      <Trash2 size={16} />
+                      <Trash size={16} />
                     </button>
                   </div>
                 </td>

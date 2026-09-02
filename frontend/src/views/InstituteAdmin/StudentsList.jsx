@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Filter, Plus, Edit2, Trash2, Eye, BookOpen, User, Phone, Mail, Shield, CheckCircle2 } from 'lucide-react';
+import { MagnifyingGlass, Faders, Plus, PencilSimple, Trash, Eye, BookOpen, User, Phone, EnvelopeSimple, Shield, CheckCircle } from '@phosphor-icons/react';
 import { student_profiles, users, campus_branches, addStudent, updateStudent, deleteStudent } from '../../data/mockData';
 
 export default function StudentsList({ user }) {
@@ -121,10 +121,10 @@ export default function StudentsList({ user }) {
       <div className="table-card">
         <div className="table-header" style={{ padding: '20px 24px', borderBottom: '1px solid var(--border-light)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
           <div className="search-bar" style={{ display: 'flex', alignItems: 'center', gap: 12, background: 'var(--bg-color)', padding: '10px 16px', borderRadius: '8px', width: '320px', border: '1px solid var(--border-strong)' }}>
-            <Search size={18} color="var(--text-muted)" />
+            <MagnifyingGlass size={18} color="var(--text-muted)" />
             <input 
               type="text" 
-              placeholder="Search by name, roll no, program..." 
+              placeholder="MagnifyingGlass by name, roll no, program..." 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               style={{ border: 'none', background: 'transparent', outline: 'none', width: '100%', color: 'var(--text-main)' }}
@@ -188,14 +188,14 @@ export default function StudentsList({ user }) {
                       style={{ padding: 6, color: 'var(--primary)', background: 'var(--bg-color)', borderRadius: 6, border: '1px solid var(--border-light)', cursor: 'pointer' }}
                       title="Edit Student"
                     >
-                      <Edit2 size={15} />
+                      <PencilSimple size={15} />
                     </button>
                     <button 
                       onClick={(e) => handleDelete(s.id, e)}
                       style={{ padding: 6, color: '#ef4444', background: 'var(--bg-color)', borderRadius: 6, border: '1px solid var(--border-light)', cursor: 'pointer' }}
                       title="Delete Student"
                     >
-                      <Trash2 size={15} />
+                      <Trash size={15} />
                     </button>
                   </div>
                 </td>

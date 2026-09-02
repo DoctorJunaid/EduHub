@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookMarked, Plus, Trash2, Calendar, BookOpen, Clock, FileText } from 'lucide-react';
+import { Bookmark, Plus, Trash, Calendar, BookOpen, Clock, FileText } from '@phosphor-icons/react';
 import { daily_diary, addDailyDiary, deleteDailyDiary } from '../../data/mockData';
 
 export default function TeacherDailyDiary({ user }) {
@@ -88,7 +88,7 @@ export default function TeacherDailyDiary({ user }) {
                 style={{ color: '#ef4444', background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
                 title="Delete Diary Entry"
               >
-                <Trash2 size={16} />
+                <Trash size={16} />
               </button>
             </div>
 
