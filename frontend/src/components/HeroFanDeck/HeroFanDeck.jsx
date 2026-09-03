@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence, useScroll } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { 
   ArrowRight, 
   Play, 
@@ -106,12 +106,6 @@ export default function HeroFanDeck({ onGetStarted, navigate }) {
   const [selectedCard, setSelectedCard] = useState(null);
   const [mouseTilt, setMouseTilt] = useState({ x: 0, y: 0 });
   const stageRef = useRef(null);
-  const wrapperRef = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: wrapperRef,
-    offset: ["start start", "end start"]
-  });
 
   // Trigger unfurl animation shortly after mount to replicate video entrance
   useEffect(() => {
@@ -165,10 +159,9 @@ export default function HeroFanDeck({ onGetStarted, navigate }) {
   };
 
   return (
-    <div ref={wrapperRef} className="hero-scroll-wrapper">
-      <section className="hero-fan-container" id="top">
-        {/* Ambient Radial Illumination */}
-        <div className="hero-ambient-glow" />
+    <section className="hero-fan-container" id="top">
+      {/* Ambient Radial Illumination */}
+      <div className="hero-ambient-glow" />
 
       {/* Main Headline matching video phrasing & rhythm */}
       <motion.h1 
@@ -243,7 +236,6 @@ export default function HeroFanDeck({ onGetStarted, navigate }) {
               hoveredIndex={hoveredIndex}
               onHover={setHoveredIndex}
               onSelect={handleCardClick}
-              scrollYProgress={scrollYProgress}
             />
           ))}
         </motion.div>
@@ -376,6 +368,5 @@ export default function HeroFanDeck({ onGetStarted, navigate }) {
         )}
       </AnimatePresence>
     </section>
-    </div>
   );
 }
